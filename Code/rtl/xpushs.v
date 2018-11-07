@@ -1,7 +1,10 @@
 `timescale 1ns / 1ps
 
-module xpush (
-			input wire push_C, // Push button for C
-			input wire push_CE, // Push button for CE
-			output reg [8:0] data_out // data output
+module xpushs (
+			input			clk, // System clock
+			input			sel, // Module selection input
+			input			rst, // Module reset input
+			input			push_C, // Push button for C
+			input			push_AC, // Push button for AC
+			output [1:0]	data_out // data output
 	      );

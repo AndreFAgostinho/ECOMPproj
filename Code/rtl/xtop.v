@@ -7,16 +7,22 @@
 
 
 module xtop (
-	     //INSERT EXTERNAL INTERFACES HERE
-	     // parallel interface
-	     input [`REGF_ADDR_W-1:0] par_addr,
-	     input 		      par_we,
-	     input [`DATA_W-1:0]      par_in,
-	     output [`DATA_W-1:0]     par_out,
-
+	    
 	     //MANDATORY INTERFACE SIGNALS
 	     input 		      clk,
-	     input 		      rst
+	     input 		      rst,
+		  
+		  // PS2 signals
+		  input				ps2_data,
+		  input				ps2_clk,
+		  
+		  // Push button signals
+		  input				push_AC,
+		  input				push_C,
+		  
+		  // 7 segment display control signals
+		  output	[11:0]	disp_ctrl
+		  
 	     );
 
    //
@@ -43,12 +49,16 @@ module xtop (
    reg 				  regf_sel;
    wire [`DATA_W-1:0] 		  regf_data_to_rd;
 
-   
 `ifdef DEBUG
    reg 				  cprt_sel;
 `endif
-   
-   
+
+	reg					ps2_sel;
+	wire [8:0]			ps2_data_to_rd;
+	reg					pushs_sel;
+	wire [1:0]			pushs_data_to_rd;
+	reg					disp_sel;
+
    //
    //
    // FIXED SUBMODULES
@@ -159,4 +169,30 @@ module xtop (
 		   );
 `endif
    
+	xpushs pushs (
+			.clk(clk),
+			.sel(pushs_sel),
+			.rst(rst),
+			.push_C(push_C),
+			.push_AC(push_AC),
+			.data_out(pushs_data_to_rd)
+			);
+
+	xps2 ps2 (
+			.clk(clk),
+			.sel(ps2_sel),
+			.rst(rst),
+			.ps2_clk(ps2_clk),
+			.ps2_data(ps2_data),
+			.data_out(ps2_data_to_rd)
+			);
+			
+	xdisp disp (
+			.clk(clk),
+			.sel(disp_sel),
+			.rst(rst),
+			.data_in(data_to_wr[11:0]),
+			.data_out(disp_ctrl)
+			);
+			
 endmodule
