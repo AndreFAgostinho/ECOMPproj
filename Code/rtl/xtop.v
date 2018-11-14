@@ -114,6 +114,10 @@ module xtop (
    always @ * begin
       prog_sel = 1'b0;
       regf_sel = 1'b0;
+		pushs_sel = 1'b0;
+		ps2_sel = 1'b0;
+		disp_sel = 1'b0;
+		
 `ifdef DEBUG
       cprt_sel = 1'b0;
 `endif
@@ -130,7 +134,17 @@ module xtop (
      else if (`PROG_BASE == (data_addr & ({`ADDR_W{1'b1}}<<`PROG_ADDR_W))) begin
          prog_sel = 1'b1;
          data_to_rd = prog_data_to_rd;
-     end
+	  end
+	  else if (`PUSH_BASE == data_addr)
+	  pushs_sel = 1'b1;
+	  
+	  
+	  else if(`PS2_BASE == data_addr)
+	  ps2_sel =1'b1;
+	  
+	  else if(`DISP_BASE == data_addr)
+	  disp_base =1'b1;
+	  
 `ifdef DEBUG	
      else if(data_sel === 1'b1)
        $display("Warning: unmapped controller issued data address %x at time %f", data_addr, $time);
