@@ -10,11 +10,4 @@ module xps2 (
 			output [8:0]	data_out // Keypress data output and valid bit
 	      );
 
-
-			
-
- always @(posedge clk)
-   if(sel)
-     $write("%c", ps2_data);
-
 endmodule

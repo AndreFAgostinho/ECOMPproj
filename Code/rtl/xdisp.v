@@ -9,10 +9,4 @@ module xdisp (
 			output [11:0]	data_out // 7 segment display control signals
 	      );
 			
-			
-
- always @(posedge clk)
-   if(sel)
-     $write("%c", data_in);
-
 endmodule
