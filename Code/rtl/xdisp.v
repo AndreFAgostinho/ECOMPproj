@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`include "xdefs.vh"
 
 module xdisp (
 			input			clk, // System clock
@@ -7,3 +8,11 @@ module xdisp (
 			input	 [11:0]	data_in, // Number input with Overflow bit
 			output [11:0]	data_out // 7 segment display control signals
 	      );
+			
+			
+
+ always @(posedge clk)
+   if(sel)
+     $write("%c", data_in);
+
+endmodule
