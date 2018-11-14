@@ -8,3 +8,5 @@ module xpushs (
 			input			push_AC, // Push button for AC
 			output [1:0]	data_out // data output
 	      );
+
+endmodule
