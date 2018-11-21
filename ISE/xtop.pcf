@@ -1,0 +1,72 @@
+//! **************************************************************************
+// Written by: Map P.28xd on Wed Nov 21 10:45:50 2018
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "B8" LEVEL 1;
+COMP "rst" LOCATE = SITE "G12" LEVEL 1;
+COMP "ps2_clk" LOCATE = SITE "B1" LEVEL 1;
+COMP "push_AC" LOCATE = SITE "A7" LEVEL 1;
+COMP "disp_ctrl<0>" LOCATE = SITE "L14" LEVEL 1;
+COMP "disp_ctrl<1>" LOCATE = SITE "H12" LEVEL 1;
+COMP "disp_ctrl<2>" LOCATE = SITE "N14" LEVEL 1;
+COMP "disp_ctrl<3>" LOCATE = SITE "N11" LEVEL 1;
+COMP "disp_ctrl<4>" LOCATE = SITE "P12" LEVEL 1;
+COMP "disp_ctrl<5>" LOCATE = SITE "L13" LEVEL 1;
+COMP "disp_ctrl<6>" LOCATE = SITE "M12" LEVEL 1;
+COMP "disp_ctrl<7>" LOCATE = SITE "N13" LEVEL 1;
+COMP "disp_ctrl<8>" LOCATE = SITE "F12" LEVEL 1;
+COMP "disp_ctrl<9>" LOCATE = SITE "J12" LEVEL 1;
+COMP "ps2_data" LOCATE = SITE "C3" LEVEL 1;
+COMP "push_C" LOCATE = SITE "M4" LEVEL 1;
+COMP "gpo_out<0>" LOCATE = SITE "M5" LEVEL 1;
+COMP "gpo_out<1>" LOCATE = SITE "M11" LEVEL 1;
+COMP "disp_ctrl<10>" LOCATE = SITE "M13" LEVEL 1;
+COMP "disp_ctrl<11>" LOCATE = SITE "K14" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+PIN prog/ram/Mram_mem.A_pins<10> = BEL "prog/ram/Mram_mem.A" PINNAME CLKA;
+PIN prog/ram/Mram_mem.B_pins<10> = BEL "prog/ram/Mram_mem.B" PINNAME CLKB;
+TIMEGRP clk = BEL "controller/negative" BEL "controller/carry" BEL
+        "controller/overflow" BEL "controller/regB_0" BEL "controller/regB_1"
+        BEL "controller/regB_2" BEL "controller/regB_3" BEL
+        "controller/regB_4" BEL "controller/regB_5" BEL "controller/regB_6"
+        BEL "controller/regB_7" BEL "controller/regB_8" BEL
+        "controller/regB_9" BEL "controller/regB_10" BEL "controller/regB_11"
+        BEL "controller/regB_12" BEL "controller/regB_13" BEL
+        "controller/regB_14" BEL "controller/regB_15" BEL "controller/regB_16"
+        BEL "controller/regB_17" BEL "controller/regB_18" BEL
+        "controller/regB_19" BEL "controller/regB_20" BEL "controller/regB_21"
+        BEL "controller/regB_22" BEL "controller/regB_23" BEL
+        "controller/regB_24" BEL "controller/regB_25" BEL "controller/regB_26"
+        BEL "controller/regB_27" BEL "controller/regB_28" BEL
+        "controller/regB_29" BEL "controller/regB_30" BEL "controller/regB_31"
+        BEL "pushs/data_out_1" BEL "pushs/data_out_0" BEL
+        "regf/Mram_reg_21.SLICEM_F" BEL "regf/Mram_reg_21.SLICEM_G" BEL
+        "regf/Mram_reg_24.SLICEM_F" BEL "regf/Mram_reg_24.SLICEM_G" BEL
+        "gpo/data_out_7" BEL "gpo/data_out_6" BEL "gpo/data_out_5" BEL
+        "gpo/data_out_4" BEL "gpo/data_out_3" BEL "gpo/data_out_2" BEL
+        "gpo/data_out_1" BEL "gpo/data_out_0" BEL "prog/rom/instruction_30"
+        BEL "prog/rom/instruction_29" BEL "prog/rom/instruction_28" BEL
+        "prog/rom/instruction_4" BEL "prog/rom/instruction_2" BEL
+        "prog/rom/instruction_1" BEL "prog/rom/instruction_0" BEL
+        "controller/regA_0" BEL "controller/regA_1" BEL "controller/regA_2"
+        BEL "controller/regA_3" BEL "controller/regA_4" BEL
+        "controller/regA_5" BEL "controller/regA_6" BEL "controller/regA_7"
+        BEL "controller/regA_8" BEL "controller/regA_9" BEL
+        "controller/regA_10" BEL "controller/regA_11" BEL "controller/regA_12"
+        BEL "controller/regA_13" BEL "controller/regA_14" BEL
+        "controller/regA_15" BEL "controller/regA_16" BEL "controller/regA_17"
+        BEL "controller/regA_18" BEL "controller/regA_19" BEL
+        "controller/regA_20" BEL "controller/regA_21" BEL "controller/regA_22"
+        BEL "controller/regA_23" BEL "controller/regA_24" BEL
+        "controller/regA_25" BEL "controller/regA_26" BEL "controller/regA_27"
+        BEL "controller/regA_28" BEL "controller/regA_29" BEL
+        "controller/regA_30" BEL "controller/regA_31" BEL "controller/pc_0"
+        BEL "controller/pc_1" BEL "controller/pc_2" BEL "controller/pc_3" BEL
+        "controller/pc_4" BEL "controller/pc_5" BEL "controller/pc_6" BEL
+        "controller/pc_7" BEL "controller/pc_8" PIN
+        "prog/ram/Mram_mem.A_pins<10>" PIN "prog/ram/Mram_mem.B_pins<10>" BEL
+        "clk_BUFGP/BUFG.GCLKMUX" BEL "clk_BUFGP/BUFG";
+TS_clkin = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+SCHEMATIC END;
+

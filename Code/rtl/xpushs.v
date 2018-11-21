@@ -14,12 +14,12 @@ always @(posedge clk)
    if(rst)
      data_out= 2'b00;
 	else
-     if (push_C)
-	  data_out = 2'b10;
-	  else if (push_AC)
-	  data_out = 2'b01;
-	  else if (push_AC && push_C)
-	  data_out =2'b11;
-	  else data_out=2'b00;
+		if (push_AC && push_C)
+			data_out = 2'b11;
+		else if (push_AC)
+			data_out = 2'b01;
+		else if (push_C)
+			data_out =2'b10;
+		else data_out=2'b00;
 	
 endmodule

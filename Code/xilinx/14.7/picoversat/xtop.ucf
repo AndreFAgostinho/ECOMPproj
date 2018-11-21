@@ -7,7 +7,8 @@ NET "push_C" LOC = "M4";  # Bank = 0, Signal name = BTN2
 NET "rst" LOC = "G12"; # Bank = 0, Signal name = BTN0
 
 # LED
-#NET "led<0>"  LOC = "M5";
+NET "gpo_out<0>"  LOC = "M5"; // LED 0
+NET "gpo_out<1>"  LOC = "M11"; // LED 1 
 
 # Pin assignment for DispCtl
 # Connected to Basys2 onBoard 7seg display
