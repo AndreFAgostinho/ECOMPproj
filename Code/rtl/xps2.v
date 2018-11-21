@@ -7,7 +7,12 @@ module xps2 (
 			input			rst, // Module reset input
 			input			ps2_clk, // Clock pin form keyboard
 			input			ps2_data, //Data pin form keyboard
-			output [8:0]	data_out // Keypress data output and valid bit
+			output reg[8:0]	data_out // Keypress data output and valid bit
 	      );
+
+always @(posedge clk)
+
+ if (rst)
+	data_out <= 9'b0;
 
 endmodule

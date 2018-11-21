@@ -1,0 +1,10 @@
+
+	rdw PUSH_BASE
+	wrw GPO_BASE
+
+#finish program by jumping back to boot ROM
+	ldi 0
+	beqi PROG_ROM
+	nop
+	nop
+
