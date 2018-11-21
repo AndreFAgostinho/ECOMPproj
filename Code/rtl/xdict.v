@@ -21,10 +21,10 @@ module xdict;
       //
       // CONTROLLER
       //
-      
-      //immediate width       
+
+      //immediate width
       $fwrite(fp, "\"IMM_W\":%d,\n", `IMM_W);
-  
+
       //delay slots
       $fwrite(fp, "\"DELAY_SLOTS\":%d,\n", `DELAY_SLOTS);
 
@@ -46,19 +46,19 @@ module xdict;
       $fwrite(fp, "\"bneqi\":%d,\n", `BNEQI);
       $fwrite(fp, "\"bneq\":%d,\n", `BNEQ);
 
-      // aliases 
+      // aliases
       $fwrite(fp, "\"nop\":%d,\n", `ADDI);
       $fwrite(fp, "\"wrc\":%d,\n", `WRW);
 
-      
+
       //
       // PROG
       //
-          
+
       $fwrite(fp, "\"INSTR_W\":%d,\n", `INSTR_W);
       $fwrite(fp, "\"PROG_ADDR_W\":%d,\n", `PROG_ADDR_W);
 
-  
+
       //
       //
       // MEMORY MAP
@@ -68,9 +68,9 @@ module xdict;
       // Controller
       $fwrite(fp, "\"RB\":%d,\n", `RB);
       $fwrite(fp, "\"RC\":%d,\n", `RC);
-      
-      
-      // Registers 
+
+
+      // Registers
       $fwrite(fp, "\"R0\":%d,\n", `R0);
       $fwrite(fp, "\"R1\":%d,\n", `R1);
       $fwrite(fp, "\"R2\":%d,\n", `R2);
@@ -88,17 +88,28 @@ module xdict;
       $fwrite(fp, "\"R14\":%d,\n", `R14);
       $fwrite(fp, "\"R15\":%d,\n", `R15);
 
-      // Program memory 
+      // Program memory
       $fwrite(fp, "\"PROG_ROM\":%d,\n", `PROG_ROM);
       $fwrite(fp, "\"PROG_ROM_ADDR_W\":%d,\n", `PROG_ROM_ADDR_W);
       $fwrite(fp, "\"PROG_RAM\":%d,\n", `PROG_RAM);
       $fwrite(fp, "\"PROG_RAM_ADDR_W\":%d,\n", `PROG_RAM_ADDR_W);
       // used as data memory
-      $fwrite(fp, "\"PROG_BASE\":%d,\n", `PROG_BASE); 
+      $fwrite(fp, "\"PROG_BASE\":%d,\n", `PROG_BASE);
 
       // Char print module
       $fwrite(fp, "\"CPRT_BASE\":%d,\n", `CPRT_BASE);
 
+      // Push button driver
+      $fwrite(fp, "\"PUSH_BASE\":%d,\n", `PUSH_BASE);
+
+      // PS2 keyboard driver
+      $fwrite(fp, "\"PS2_BASE\":%d,\n", `PS2_BASE);
+
+      // 7 segment display controller
+      $fwrite(fp, "\"DISP_BASE\":%d,\n", `DISP_BASE);
+
+      // direct output to LED module
+      $fwrite(fp, "\"GPO_BASE\":%d,\n", `GPO_BASE);
 
       // Finish writing dictionary
       $fwrite(fp,"}\n");

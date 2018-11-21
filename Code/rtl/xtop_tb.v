@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 
 `include "xdefs.vh"
+`include "xregfdefs.vh"
 
 module xtop_tb;
    
@@ -19,6 +20,19 @@ module xtop_tb;
    reg [`DATA_W-1:0] 	   par_in;
    wire [`DATA_W-1:0] 	   par_out;
 
+   // calculator interface
+
+   wire ps2_data;
+   wire ps2_clk;
+
+   wire push_AC;
+   wire push_C;
+
+   wire [11:0]  disp_ctrl;
+	
+	wire [7:0]   gpo_out;
+   
+
    //iterator and timer
    integer 		   k, start_time;
 
@@ -28,13 +42,16 @@ module xtop_tb;
    // Instantiate the Unit Under Test (UUT)
    xtop uut (
 	      .clk(clk),
-              .rst(rst),
+          .rst(rst),
 	      
-   	     // parallel interface
-	     .par_addr(par_addr),
-	     .par_we(par_we),
-	     .par_in(par_in),
-	     .par_out(par_out)
+   	     // calculator interface
+         
+          .ps2_data(ps2_data),
+          .ps2_clk(ps2_clk),
+          .push_AC(push_AC),
+          .push_C(push_C),
+          .disp_ctrl(disp_ctrl),
+			 .gpo_out(gpo_out)
     
 	      );
    
@@ -86,7 +103,7 @@ module xtop_tb;
 	 #clk_period par_addr = par_addr + 1;
       end
   
-      $writememh("data_out.hex", data, 0, 2**`REGF_ADDR_W - 1);
+      //$writememh("data_out.hex", data, 0, 2**`REGF_ADDR_W - 1);
 
       //
       // End/pause simulation

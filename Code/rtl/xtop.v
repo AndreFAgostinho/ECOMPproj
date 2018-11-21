@@ -21,7 +21,10 @@ module xtop (
 		  input				push_C,
 		  
 		  // 7 segment display control signals
-		  output	[11:0]	disp_ctrl
+		  output	[11:0]	disp_ctrl,
+          
+          // LED ouput
+          output [7:0]	      gpo_out
 		  
 	     );
 
@@ -42,7 +45,7 @@ module xtop (
    reg [`DATA_W-1:0] 		  data_to_rd;
    wire [`DATA_W-1:0] 		  data_to_wr;
 
-   // MODULE SELECTION SIGNALS
+   // MODULE SELECTION AND RESET SIGNALS
    reg 				  prog_sel;
    wire [`DATA_W-1:0] 		  prog_data_to_rd;
    
@@ -54,10 +57,16 @@ module xtop (
 `endif
 
 	reg					ps2_sel;
+    reg                 ps2_rst;
 	wire [8:0]			ps2_data_to_rd;
 	reg					pushs_sel;
+    reg                 pushs_rst;
 	wire [1:0]			pushs_data_to_rd;
-	reg					disp_sel;
+	reg					disp_sel;
+    reg                 disp_rst;
+    reg                 gpo_sel;
+    reg                 gpo_rst;
+
 
    //
    //
@@ -112,44 +121,51 @@ module xtop (
 
    // ADDRESS DECODER
    always @ * begin
-      prog_sel = 1'b0;
-      regf_sel = 1'b0;
+        prog_sel = 1'b0;
+        regf_sel = 1'b0;
 		pushs_sel = 1'b0;
+        pushs_rst = 1'b0;
 		ps2_sel = 1'b0;
+        ps2_rst = 1'b0;
 		disp_sel = 1'b0;
+        disp_rst = 1'b0;
+        gpo_sel = 1'b0;
+        gpo_rst = 1'b0;
 		
 `ifdef DEBUG
-      cprt_sel = 1'b0;
+        cprt_sel = 1'b0;
 `endif
-      data_to_rd = `DATA_W'd0;
+        data_to_rd = `DATA_W'd0;
       
-      if (`REGF_BASE == (data_addr & ({`ADDR_W{1'b1}}<<`REGF_ADDR_W))) begin
-	 regf_sel = data_sel;
-         data_to_rd = regf_data_to_rd;
-      end
+        if (`REGF_BASE == (data_addr & ({`ADDR_W{1'b1}}<<`REGF_ADDR_W))) begin
+	        regf_sel = data_sel;
+            data_to_rd = regf_data_to_rd;
+        end
+
 `ifdef DEBUG
-      else if (`CPRT_BASE == data_addr)
-	 cprt_sel = data_sel;
+        else if (`CPRT_BASE == data_addr)
+	        cprt_sel = data_sel;
  `endif
-     else if (`PROG_BASE == (data_addr & ({`ADDR_W{1'b1}}<<`PROG_ADDR_W))) begin
-         prog_sel = 1'b1;
-         data_to_rd = prog_data_to_rd;
-	  end
-	  else if (`PUSH_BASE == data_addr)
-	  pushs_sel = 1'b1;
-	  
-	  
-	  else if(`PS2_BASE == data_addr)
-	  ps2_sel =1'b1;
-	  
-	  else if(`DISP_BASE == data_addr)
-	  disp_base =1'b1;
+
+        else if (`PROG_BASE == (data_addr & ({`ADDR_W{1'b1}}<<`PROG_ADDR_W))) begin
+            prog_sel = 1'b1;
+            data_to_rd = prog_data_to_rd;	    
+        end
+
+	    else if (`PUSH_BASE == data_addr)
+	        pushs_sel = 1'b1;	  
+	    else if(`PS2_BASE == data_addr)
+	        ps2_sel =1'b1;
+	    else if(`DISP_BASE == data_addr)
+	        disp_sel =1'b1;
+        else if (`GPO_BASE == data_addr)
+	        gpo_sel = 1'b1;
 	  
 `ifdef DEBUG	
-     else if(data_sel === 1'b1)
-       $display("Warning: unmapped controller issued data address %x at time %f", data_addr, $time);
+        else if(data_sel === 1'b1)
+            $display("Warning: unmapped controller issued data address %x at time %f", data_addr, $time);
 `endif
-   end // always @ *
+    end // always @ *
 
    //
    //
@@ -162,10 +178,10 @@ module xtop (
 	       .clk(clk),
 	       
 	       //host interface (external)
-	       .ext_we(par_we),
-	       .ext_addr(par_addr),
-	       .ext_data_in(par_in),
-	       .ext_data_out(par_out),
+	       .ext_we(1'b1),
+	       .ext_addr(4'b0),
+	       .ext_data_in(32'b1),
+	       .ext_data_out(),
 			
 	       //versat interface (internal)
 	       .int_sel(regf_sel),
@@ -208,5 +224,13 @@ module xtop (
 			.data_in(data_to_wr[11:0]),
 			.data_out(disp_ctrl)
 			);
+
+    xgpo gpo (
+	    .clk(clk),
+        .sel(gpo_sel),
+	    .rst(gpo_rst),
+	    .data_in(data_to_wr[7:0]),
+	    .data_out(gpo_out)
+    );
 			
 endmodule
