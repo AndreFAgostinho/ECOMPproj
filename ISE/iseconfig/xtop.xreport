@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-11-21T09:55:20</DateModified>
+  <DateModified>2018-11-21T10:30:36</DateModified>
   <ModuleName>xtop</ModuleName>
-  <SummaryTimeStamp>2018-11-14T10:01:54</SummaryTimeStamp>
+  <SummaryTimeStamp>2018-11-21T10:25:14</SummaryTimeStamp>
   <SavedFilePath>E:/EComp/Calculadora/ISE/iseconfig/xtop.xreport</SavedFilePath>
   <ImplementationReportsDirectory>E:/EComp/Calculadora/ISE</ImplementationReportsDirectory>
   <DateInitialized>2018-11-14T09:57:03</DateInitialized>

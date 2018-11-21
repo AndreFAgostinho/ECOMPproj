@@ -152,10 +152,14 @@ module xtop (
             data_to_rd = prog_data_to_rd;	    
         end
 
-	    else if (`PUSH_BASE == data_addr)
-	        pushs_sel = 1'b1;	  
-	    else if(`PS2_BASE == data_addr)
+	    else if (`PUSH_BASE == data_addr) begin
+	        pushs_sel = 1'b1;
+			  data_to_rd = pushs_data_to_rd;
+	    end
+	    else if(`PS2_BASE == data_addr) begin
 	        ps2_sel =1'b1;
+			  data_to_rd = ps2_data_to_rd;
+		 end
 	    else if(`DISP_BASE == data_addr)
 	        disp_sel =1'b1;
         else if (`GPO_BASE == data_addr)

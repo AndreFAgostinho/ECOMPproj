@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=E:\EComp\Calculadora\ISE\xtop.ncd
+OUTFILE=E:\EComp\Calculadora\ISE\xtop.bit
+FAMILY=Spartan3E
+PART=xc3s100e-4cp132
+WORKINGDIR=E:\EComp\Calculadora\ISE
+LICENSE=WebPack
+USER_INFO=211616899_0_0_552

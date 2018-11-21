@@ -91,7 +91,8 @@ module xtop_tb;
       par_addr = 0;
 
       //wait for versat to reset R0
-      while(par_out != 0) #clk_period;
+		
+      while(1'b1) #clk_period;
 
       $display("Execution time in clock cycles: %0d",($time-start_time)/clk_period);
 
