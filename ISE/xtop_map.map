@@ -9,48 +9,45 @@ Target Device  : xc3s100e
 Target Package : cp132
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Wed Nov 21 10:45:48 2018
+Mapped Date    : Wed Nov 28 11:27:50 2018
 
 Mapping design into LUTs...
 Running directed packing...
 Running delay-based LUT packing...
 Running related packing...
 Updating timing models...
-WARNING:PhysDesignRules:367 - The signal <ps2_clk_IBUF> is incomplete. The
-   signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <ps2_data_IBUF> is incomplete. The
-   signal does not drive any load pins in the design.
 
 Design Summary
 --------------
 
 Design Summary:
 Number of errors:      0
-Number of warnings:    2
+Number of warnings:    0
 Logic Utilization:
-  Number of Slice Flip Flops:            93 out of   1,920    4%
-  Number of 4 input LUTs:               714 out of   1,920   37%
+  Number of Slice Flip Flops:           115 out of   1,920    5%
+  Number of 4 input LUTs:               721 out of   1,920   37%
 Logic Distribution:
-  Number of occupied Slices:            385 out of     960   40%
-    Number of Slices containing only related logic:     385 out of     385 100%
-    Number of Slices containing unrelated logic:          0 out of     385   0%
+  Number of occupied Slices:            398 out of     960   41%
+    Number of Slices containing only related logic:     398 out of     398 100%
+    Number of Slices containing unrelated logic:          0 out of     398   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         723 out of   1,920   37%
-    Number used as logic:               710
+  Total Number of 4 input LUTs:         730 out of   1,920   38%
+    Number used as logic:               716
     Number used as a route-thru:          9
     Number used for Dual Port RAMs:       4
       (Two LUTs used per Dual Port RAM)
+    Number used as Shift registers:       1
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
   Number of bonded IOBs:                 26 out of      83   31%
   Number of RAMB16s:                      1 out of       4   25%
-  Number of BUFGMUXs:                     1 out of      24    4%
+  Number of BUFGMUXs:                     2 out of      24    8%
 
-Average Fanout of Non-Clock Nets:                3.42
+Average Fanout of Non-Clock Nets:                3.43
 
-Peak Memory Usage:  268 MB
+Peak Memory Usage:  267 MB
 Total REAL time to MAP completion:  2 secs 
 Total CPU time to MAP completion:   2 secs 
 

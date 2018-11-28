@@ -1,11 +1,13 @@
 //! **************************************************************************
-// Written by: Map P.28xd on Wed Nov 21 10:45:50 2018
+// Written by: Map P.28xd on Wed Nov 28 11:27:52 2018
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "clk" LOCATE = SITE "B8" LEVEL 1;
 COMP "rst" LOCATE = SITE "G12" LEVEL 1;
 COMP "ps2_clk" LOCATE = SITE "B1" LEVEL 1;
+PIN ps2_clk_pin<0> = BEL "ps2_clk" PINNAME PAD;
+PIN "ps2_clk_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
 COMP "push_AC" LOCATE = SITE "A7" LEVEL 1;
 COMP "disp_ctrl<0>" LOCATE = SITE "L14" LEVEL 1;
 COMP "disp_ctrl<1>" LOCATE = SITE "H12" LEVEL 1;
@@ -24,6 +26,7 @@ COMP "gpo_out<1>" LOCATE = SITE "M11" LEVEL 1;
 COMP "disp_ctrl<10>" LOCATE = SITE "M13" LEVEL 1;
 COMP "disp_ctrl<11>" LOCATE = SITE "K14" LEVEL 1;
 NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+NET "ps2_clk_BUFGP/IBUFG" BEL "ps2_clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
 PIN prog/ram/Mram_mem.A_pins<10> = BEL "prog/ram/Mram_mem.A" PINNAME CLKA;
 PIN prog/ram/Mram_mem.B_pins<10> = BEL "prog/ram/Mram_mem.B" PINNAME CLKB;
 TIMEGRP clk = BEL "controller/negative" BEL "controller/carry" BEL
@@ -41,8 +44,11 @@ TIMEGRP clk = BEL "controller/negative" BEL "controller/carry" BEL
         BEL "controller/regB_27" BEL "controller/regB_28" BEL
         "controller/regB_29" BEL "controller/regB_30" BEL "controller/regB_31"
         BEL "pushs/data_out_1" BEL "pushs/data_out_0" BEL
+        "regf/Mram_reg_23.SLICEM_F" BEL "regf/Mram_reg_23.SLICEM_G" BEL
         "regf/Mram_reg_21.SLICEM_F" BEL "regf/Mram_reg_21.SLICEM_G" BEL
-        "regf/Mram_reg_24.SLICEM_F" BEL "regf/Mram_reg_24.SLICEM_G" BEL
+        "ps2/data_out_0" BEL "ps2/data_out_1" BEL "ps2/data_out_3" BEL
+        "ps2/data_out_4" BEL "ps2/data_out_2" BEL "ps2/data_out_6" BEL
+        "ps2/data_out_7" BEL "ps2/data_out_5" BEL "ps2/data_out_8" BEL
         "gpo/data_out_7" BEL "gpo/data_out_6" BEL "gpo/data_out_5" BEL
         "gpo/data_out_4" BEL "gpo/data_out_3" BEL "gpo/data_out_2" BEL
         "gpo/data_out_1" BEL "gpo/data_out_0" BEL "prog/rom/instruction_30"
