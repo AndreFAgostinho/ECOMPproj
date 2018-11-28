@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.28xd on Wed Nov 28 11:27:52 2018
+// Written by: Map P.28xd on Wed Nov 28 11:45:58 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -23,6 +23,12 @@ COMP "ps2_data" LOCATE = SITE "C3" LEVEL 1;
 COMP "push_C" LOCATE = SITE "M4" LEVEL 1;
 COMP "gpo_out<0>" LOCATE = SITE "M5" LEVEL 1;
 COMP "gpo_out<1>" LOCATE = SITE "M11" LEVEL 1;
+COMP "gpo_out<2>" LOCATE = SITE "P7" LEVEL 1;
+COMP "gpo_out<3>" LOCATE = SITE "P6" LEVEL 1;
+COMP "gpo_out<4>" LOCATE = SITE "N5" LEVEL 1;
+COMP "gpo_out<5>" LOCATE = SITE "N4" LEVEL 1;
+COMP "gpo_out<6>" LOCATE = SITE "P4" LEVEL 1;
+COMP "gpo_out<7>" LOCATE = SITE "G1" LEVEL 1;
 COMP "disp_ctrl<10>" LOCATE = SITE "M13" LEVEL 1;
 COMP "disp_ctrl<11>" LOCATE = SITE "K14" LEVEL 1;
 NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;

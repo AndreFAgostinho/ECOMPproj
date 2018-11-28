@@ -9,6 +9,13 @@ NET "rst" LOC = "G12"; # Bank = 0, Signal name = BTN0
 # LED
 NET "gpo_out<0>"  LOC = "M5"; // LED 0
 NET "gpo_out<1>"  LOC = "M11"; // LED 1
+NET "gpo_out<2>" LOC = "P7" ; # Bank = 3, Signal name = LD2
+NET "gpo_out<3>" LOC = "P6" ; # Bank = 2, Signal name = LD3
+NET "gpo_out<4>" LOC = "N5" ;  # Bank = 2, Signal name = LD4
+NET "gpo_out<5>" LOC = "N4" ;  # Bank = 2, Signal name = LD5
+NET "gpo_out<6>" LOC = "P4" ; # Bank = 2, Signal name = LD6
+NET "gpo_out<7>" LOC = "G1" ; # Bank = 3, Signal name = LD7
+
 
 # Pin assignment for DispCtl
 # Connected to Basys2 onBoard 7seg display
