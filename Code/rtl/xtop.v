@@ -202,7 +202,16 @@ module xtop (
 		   .data_in(data_to_wr[7:0])
 		   );
 `endif
-   
+
+   xps2 ps2 (
+			.clk(clk),
+			.sel(ps2_sel),
+			.rst(rst),
+			.ps2_clk(ps2_clk),
+			.ps2_data(ps2_data),
+			.data_out(ps2_data_to_rd)
+			);
+			
 	xpushs pushs (
 			.clk(clk),
 			.sel(pushs_sel),
@@ -212,14 +221,7 @@ module xtop (
 			.data_out(pushs_data_to_rd)
 			);
 
-	xps2 ps2 (
-			.clk(clk),
-			.sel(ps2_sel),
-			.rst(rst),
-			.ps2_clk(ps2_clk),
-			.ps2_data(ps2_data),
-			.data_out(ps2_data_to_rd)
-			);
+
 			
 	xdisp disp (
 			.clk(clk),

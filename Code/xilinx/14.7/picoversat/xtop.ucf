@@ -8,7 +8,7 @@ NET "rst" LOC = "G12"; # Bank = 0, Signal name = BTN0
 
 # LED
 NET "gpo_out<0>"  LOC = "M5"; // LED 0
-NET "gpo_out<1>"  LOC = "M11"; // LED 1 
+NET "gpo_out<1>"  LOC = "M11"; // LED 1
 
 # Pin assignment for DispCtl
 # Connected to Basys2 onBoard 7seg display
@@ -28,4 +28,5 @@ NET "disp_ctrl<8>" LOC = "F12"; # Bank = 1, Signal name = AN0
 
 ### Pin assignment for PS2
 NET "ps2_clk"    LOC = "B1"   | DRIVE = 2  | PULLUP ; # Bank = 3, Signal name = PS2C
+NET "ps2_clk" CLOCK_DEDICATED_ROUTE = FALSE;
 NET "ps2_data"   LOC = "C3"   | DRIVE = 2  | PULLUP ; # Bank = 3, Signal name = PS2D

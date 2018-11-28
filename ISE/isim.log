@@ -11,11 +11,6 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-# run 1.00us
-# run 1.00us
-# run 1.00us
-# run 1.00us
-# run 1.00us
-# run 1.00us
-# run 1.00us
-# run 1.00us
+# run 20 ms
+# run 20 ms
+Stopped at time : 37788610 ns : File "//vboxsrv/Desktop/EComp/Calculadora/Code/rtl/xpushs.v" Line 12

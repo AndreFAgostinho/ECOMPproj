@@ -7,6 +7,7 @@ module xtop_tb;
    
    //parameters 
    parameter clk_period = 10;
+	parameter ps2_clk_period = 1000000;
 
    //
    // Interface signals
@@ -22,8 +23,8 @@ module xtop_tb;
 
    // calculator interface
 
-   wire ps2_data;
-   wire ps2_clk;
+   reg ps2_data;
+   reg ps2_clk;
 
    wire push_AC;
    wire push_C;
@@ -64,7 +65,9 @@ module xtop_tb;
         
       // Initialize Inputs
       clk = 1;
-      rst = 0;  
+      rst = 0;
+		ps2_clk = 1;
+		ps2_data = 1;
       
       // Initialize parallel interface
       par_addr = 0;
@@ -115,8 +118,12 @@ module xtop_tb;
    end // initial begin
 
    
-   always 
+   always
      #(clk_period/2) clk = ~clk;
+	  
+	always
+	  #(ps2_clk_period/2) ps2_clk = ~ps2_clk;
+	
 
    // show registers
    wire [`DATA_W-1:0] r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15;
