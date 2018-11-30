@@ -1,0 +1,169 @@
+---------------------
+# Logic operations
+---------------------
+## NOT M[A] (16 bits)
+
+    ldi 0xFFFF
+    xor %A
+
+---------------------
+# LEDs
+---------------
+## Write the value in RA to LED
+
+    wrw GPO_BASE
+
+## Write the value M[A] to LED
+
+    rdw %A
+    wrw GPO_BASE
+
+## Write the value A to LED
+
+    ldi A
+    wrw GPO_BASE
+
+---------------------
+# Display
+----------------------
+## Write the value in RA to display
+
+    wrw DISP_BASE
+
+## Write the value M[A] to display
+
+    rdw %A
+    wrw DISP_BASE
+
+
+## Write the value A to display
+
+    ldi A
+    wrw DISP_BASE
+
+---------------------
+# Control Structures
+---------------------
+
+## while (A != 0)
+
+-------------------
+# functions for calculator
+---------------------
+## operand signal check
+_is_signal nop
+    ldi 0b01111001 # bits common to both '+' and '-'
+    wrw R2 # R2 <- mask
+    rdw R1 # RA <- R1
+    and R2 # R1 AND mask
+    xor R2 # R1 AND mask XOR mask (if the result is 0 this is a signal)
+
+
+# switch for numbers (key code in R1, binary number in R3, invalid number flag in R4)
+# take out the skip bneqi to save instructions but increase a lot cycles
+# DECLARE KEY_X in dict.v
+ldi 0
+wrw R4 # is valid number until declared otherwise
+
+_key_0 ldi KEY_0
+wrw R2 # R2 <- key code for compare
+rdw R1
+xor R2 # key code XOR comp key code - 0 if equal
+bneqi _key_1 # skip if
+ldi 0
+wrw R3 # store correct number
+ldi 0
+beqi _end_num_case
+
+_key_1 ldi KEY_1
+wrw R2 # R2 <- key code for compare
+rdw R1
+xor R2 # key code XOR comp key code - 0 if equal
+bneqi _key_2 # skip if
+ldi 1
+wrw R3 # store correct number
+ldi 0
+beqi _end_num_case
+
+_key_2 ldi KEY_2
+wrw R2 # R2 <- key code for compare
+rdw R1
+xor R2 # key code XOR comp key code - 0 if equal
+bneqi _key_3 # skip if
+ldi 2
+wrw R3 # store correct number
+ldi 0
+beqi _end_num_case
+
+_key_3 ldi KEY_3
+wrw R2 # R2 <- key code for compare
+rdw R1
+xor R2 # key code XOR comp key code - 0 if equal
+bneqi _key_4 # skip if
+ldi 3
+wrw R3 # store correct number
+ldi 0
+beqi _end_num_case
+
+_key_4 ldi KEY_4
+wrw R2 # R2 <- key code for compare
+rdw R1
+xor R2 # key code XOR comp key code - 0 if equal
+bneqi _key_5 # skip if
+ldi 4
+wrw R3 # store correct number
+ldi 0
+beqi _end_num_case
+
+_key_5 ldi KEY_5
+wrw R2 # R2 <- key code for compare
+rdw R1
+xor R2 # key code XOR comp key code - 0 if equal
+bneqi _key_6 # skip if
+ldi 5
+wrw R3 # store correct number
+ldi 0
+beqi _end_num_case
+
+_key_6 ldi KEY_6
+wrw R2 # R2 <- key code for compare
+rdw R1
+xor R2 # key code XOR comp key code - 0 if equal
+bneqi _key_7 # skip if
+ldi 6
+wrw R3 # store correct number
+ldi 0
+beqi _end_num_case
+
+_key_7 ldi KEY_7
+wrw R2 # R2 <- key code for compare
+rdw R1
+xor R2 # key code XOR comp key code - 0 if equal
+bneqi _key_8 # skip if
+ldi 7
+wrw R3 # store correct number
+ldi 0
+beqi _end_num_case
+
+_key_8 ldi KEY_8
+wrw R2 # R2 <- key code for compare
+rdw R1
+xor R2 # key code XOR comp key code - 0 if equal
+bneqi _key_9 # skip if
+ldi 8
+wrw R3 # store correct number
+ldi 0
+beqi _end_num_case
+
+_key_9 ldi KEY_9
+wrw R2 # R2 <- key code for compare
+rdw R1
+xor R2 # key code XOR comp key code - 0 if equal
+bneqi _end_num_case # skip if
+ldi 9
+wrw R3 # store correct number
+ldi 0
+beqi _end_num_case
+
+
+_end_num_case
