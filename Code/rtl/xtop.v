@@ -227,7 +227,7 @@ module xtop (
 			.clk(clk),
 			.sel(disp_sel),
 			.rst(rst),
-			.data_in(data_to_wr[11:0]),
+			.data_in(data_to_wr[10:0]),
 			.data_out(disp_ctrl)
 			);
 
