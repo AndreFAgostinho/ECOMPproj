@@ -29,7 +29,7 @@ module xtop_tb;
    wire push_AC;
    wire push_C;
 
-   wire [11:0]  disp_ctrl;
+   wire[11:0]  disp_ctrl;
 	
 	wire [7:0]   gpo_out;
    
@@ -43,7 +43,7 @@ module xtop_tb;
    // Instantiate the Unit Under Test (UUT)
    xtop uut (
 	      .clk(clk),
-          .rst(rst),
+         .rst(rst),
 	      
    	     // calculator interface
          
@@ -68,6 +68,8 @@ module xtop_tb;
       rst = 0;
 		ps2_clk = 1;
 		ps2_data = 1;
+			
+	
       
       // Initialize parallel interface
       par_addr = 0;
@@ -123,6 +125,7 @@ module xtop_tb;
 	  
 	always
 	  #(ps2_clk_period/2) ps2_clk = ~ps2_clk;
+	  
 	
 
    // show registers
