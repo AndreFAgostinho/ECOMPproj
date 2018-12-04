@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.28xd on Wed Nov 28 11:45:58 2018
+// Written by: Map P.28xd on Thu Nov 29 23:00:14 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -32,7 +32,6 @@ COMP "gpo_out<7>" LOCATE = SITE "G1" LEVEL 1;
 COMP "disp_ctrl<10>" LOCATE = SITE "M13" LEVEL 1;
 COMP "disp_ctrl<11>" LOCATE = SITE "K14" LEVEL 1;
 NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
-NET "ps2_clk_BUFGP/IBUFG" BEL "ps2_clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
 PIN prog/ram/Mram_mem.A_pins<10> = BEL "prog/ram/Mram_mem.A" PINNAME CLKA;
 PIN prog/ram/Mram_mem.B_pins<10> = BEL "prog/ram/Mram_mem.B" PINNAME CLKB;
 TIMEGRP clk = BEL "controller/negative" BEL "controller/carry" BEL
@@ -50,35 +49,49 @@ TIMEGRP clk = BEL "controller/negative" BEL "controller/carry" BEL
         BEL "controller/regB_27" BEL "controller/regB_28" BEL
         "controller/regB_29" BEL "controller/regB_30" BEL "controller/regB_31"
         BEL "pushs/data_out_1" BEL "pushs/data_out_0" BEL
-        "regf/Mram_reg_23.SLICEM_F" BEL "regf/Mram_reg_23.SLICEM_G" BEL
+        "regf/Mram_reg_22.SLICEM_F" BEL "regf/Mram_reg_22.SLICEM_G" BEL
         "regf/Mram_reg_21.SLICEM_F" BEL "regf/Mram_reg_21.SLICEM_G" BEL
-        "ps2/data_out_0" BEL "ps2/data_out_1" BEL "ps2/data_out_3" BEL
-        "ps2/data_out_4" BEL "ps2/data_out_2" BEL "ps2/data_out_6" BEL
-        "ps2/data_out_7" BEL "ps2/data_out_5" BEL "ps2/data_out_8" BEL
-        "gpo/data_out_7" BEL "gpo/data_out_6" BEL "gpo/data_out_5" BEL
-        "gpo/data_out_4" BEL "gpo/data_out_3" BEL "gpo/data_out_2" BEL
-        "gpo/data_out_1" BEL "gpo/data_out_0" BEL "prog/rom/instruction_30"
-        BEL "prog/rom/instruction_29" BEL "prog/rom/instruction_28" BEL
-        "prog/rom/instruction_4" BEL "prog/rom/instruction_2" BEL
-        "prog/rom/instruction_1" BEL "prog/rom/instruction_0" BEL
-        "controller/regA_0" BEL "controller/regA_1" BEL "controller/regA_2"
-        BEL "controller/regA_3" BEL "controller/regA_4" BEL
-        "controller/regA_5" BEL "controller/regA_6" BEL "controller/regA_7"
-        BEL "controller/regA_8" BEL "controller/regA_9" BEL
-        "controller/regA_10" BEL "controller/regA_11" BEL "controller/regA_12"
-        BEL "controller/regA_13" BEL "controller/regA_14" BEL
-        "controller/regA_15" BEL "controller/regA_16" BEL "controller/regA_17"
-        BEL "controller/regA_18" BEL "controller/regA_19" BEL
-        "controller/regA_20" BEL "controller/regA_21" BEL "controller/regA_22"
-        BEL "controller/regA_23" BEL "controller/regA_24" BEL
-        "controller/regA_25" BEL "controller/regA_26" BEL "controller/regA_27"
-        BEL "controller/regA_28" BEL "controller/regA_29" BEL
-        "controller/regA_30" BEL "controller/regA_31" BEL "controller/pc_0"
-        BEL "controller/pc_1" BEL "controller/pc_2" BEL "controller/pc_3" BEL
-        "controller/pc_4" BEL "controller/pc_5" BEL "controller/pc_6" BEL
-        "controller/pc_7" BEL "controller/pc_8" PIN
-        "prog/ram/Mram_mem.A_pins<10>" PIN "prog/ram/Mram_mem.B_pins<10>" BEL
-        "clk_BUFGP/BUFG.GCLKMUX" BEL "clk_BUFGP/BUFG";
+        "ps2/downcounter_7" BEL "ps2/downcounter_6" BEL "ps2/downcounter_5"
+        BEL "ps2/downcounter_4" BEL "ps2/downcounter_3" BEL
+        "ps2/downcounter_2" BEL "ps2/downcounter_1" BEL "ps2/downcounter_0"
+        BEL "ps2/trigger" BEL "ps2/previous_state" BEL "ps2/count_3" BEL
+        "ps2/count_2" BEL "ps2/count_1" BEL "ps2/count_0" BEL
+        "ps2/scan_code_10" BEL "ps2/scan_code_9" BEL "ps2/scan_code_8" BEL
+        "ps2/scan_code_7" BEL "ps2/scan_code_6" BEL "ps2/scan_code_5" BEL
+        "ps2/scan_code_4" BEL "ps2/scan_code_3" BEL "ps2/scan_code_2" BEL
+        "ps2/scan_code_1" BEL "ps2/trig_arr" BEL "ps2/data_out_0" BEL
+        "ps2/data_out_1" BEL "ps2/data_out_2" BEL "ps2/data_out_3" BEL
+        "ps2/data_out_4" BEL "ps2/data_out_5" BEL "ps2/data_out_7" BEL
+        "ps2/data_out_8" BEL "ps2/data_out_6" BEL "disp/AN_1" BEL "disp/AN_0"
+        BEL "disp/data_out_5" BEL "disp/CAT_1" BEL "disp/CAT_0" BEL
+        "disp/data_out_10" BEL "disp/data_out_1" BEL "disp/previous_state" BEL
+        "disp/sign_1" BEL "disp/sign_0" BEL "gpo/data_out_7" BEL
+        "gpo/data_out_6" BEL "gpo/data_out_5" BEL "gpo/data_out_4" BEL
+        "gpo/data_out_3" BEL "gpo/data_out_2" BEL "gpo/data_out_1" BEL
+        "gpo/data_out_0" BEL "disp/data_out_0" BEL "disp/data_out_7" BEL
+        "disp/data_out_8" BEL "disp/data_out_9" BEL "disp/data_out_3" BEL
+        "prog/rom/instruction_30" BEL "prog/rom/instruction_29" BEL
+        "prog/rom/instruction_28" BEL "prog/rom/instruction_4" BEL
+        "prog/rom/instruction_2" BEL "prog/rom/instruction_1" BEL
+        "prog/rom/instruction_0" BEL "controller/regA_0" BEL
+        "controller/regA_1" BEL "controller/regA_2" BEL "controller/regA_3"
+        BEL "controller/regA_4" BEL "controller/regA_5" BEL
+        "controller/regA_6" BEL "controller/regA_7" BEL "controller/regA_8"
+        BEL "controller/regA_9" BEL "controller/regA_10" BEL
+        "controller/regA_11" BEL "controller/regA_12" BEL "controller/regA_13"
+        BEL "controller/regA_14" BEL "controller/regA_15" BEL
+        "controller/regA_16" BEL "controller/regA_17" BEL "controller/regA_18"
+        BEL "controller/regA_19" BEL "controller/regA_20" BEL
+        "controller/regA_21" BEL "controller/regA_22" BEL "controller/regA_23"
+        BEL "controller/regA_24" BEL "controller/regA_25" BEL
+        "controller/regA_26" BEL "controller/regA_27" BEL "controller/regA_28"
+        BEL "controller/regA_29" BEL "controller/regA_30" BEL
+        "controller/regA_31" BEL "controller/pc_0" BEL "controller/pc_1" BEL
+        "controller/pc_2" BEL "controller/pc_3" BEL "controller/pc_4" BEL
+        "controller/pc_5" BEL "controller/pc_6" BEL "controller/pc_7" BEL
+        "controller/pc_8" PIN "prog/ram/Mram_mem.A_pins<10>" PIN
+        "prog/ram/Mram_mem.B_pins<10>" BEL "clk_BUFGP/BUFG.GCLKMUX" BEL
+        "clk_BUFGP/BUFG";
 TS_clkin = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
 SCHEMATIC END;
 

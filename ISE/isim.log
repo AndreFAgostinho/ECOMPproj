@@ -1,5 +1,5 @@
 ISim log file
-Running: E:\EComp\Calculadora\ISE\xtop_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb E:/EComp/Calculadora/ISE/xtop_tb_isim_beh.wdb 
+Running: C:\Users\micae\ECOMPproj\ISE\xtop_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/micae/ECOMPproj/ISE/xtop_tb_isim_beh.wdb 
 ISim P.28xd (signature 0x1048c146)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -11,6 +11,3 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-# run 20 ms
-# run 20 ms
-Stopped at time : 37788610 ns : File "//vboxsrv/Desktop/EComp/Calculadora/Code/rtl/xpushs.v" Line 12
