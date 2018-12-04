@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/micae/ECOMPproj/ISE/xtop_tb_isim_beh.exe" -prj "C:/Users/micae/ECOMPproj/ISE/xtop_tb_beh.prj" "work.xtop_tb" "work.glbl" 

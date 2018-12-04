@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=C:\Users\micae\ECOMPproj\ISE\xtop.ncd
-OUTFILE=C:\Users\micae\ECOMPproj\ISE\xtop.bit
-FAMILY=Spartan3E
-PART=xc3s100e-4cp132
-WORKINGDIR=C:\Users\micae\ECOMPproj\ISE
-LICENSE=WebPack
-USER_INFO=211611455_0_0_155

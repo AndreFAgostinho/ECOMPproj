@@ -1,5 +1,0 @@
-set -tmpdir "C:/Users/micae/ECOMPproj/ISE/xst/projnav.tmp"
-set -xsthdpdir "C:/Users/micae/ECOMPproj/ISE/xst"
-elaborate
--ifn xps2.prj
--ifmt mixed
