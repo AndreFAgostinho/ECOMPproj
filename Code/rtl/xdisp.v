@@ -56,7 +56,7 @@ always @(posedge clk)
 			ones=ones <<1;
 			ones[0]= disp[i];
 			end
-		refresh_disp=4'b0;
+		refresh_disp=20'b0;
 		end
 		
 	refresh_disp = refresh_disp + 1;
