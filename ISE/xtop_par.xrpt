@@ -5,14 +5,14 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="par" timeStamp="Thu Nov 29 23:00:17 2018">
+  <application stringID="par" timeStamp="Tue Dec 04 16:54:15 2018">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
         <column stringID="value"/>
         <row stringID="row" value="0">
           <item stringID="variable" value="Path"/>
-          <item stringID="value" value="C:\Xilinx\14.2\ISE_DS\ISE\\lib\nt;C:\Xilinx\14.2\ISE_DS\ISE\\bin\nt;C:\Xilinx\14.2\ISE_DS\ISE\bin\nt;C:\Xilinx\14.2\ISE_DS\ISE\lib\nt;C:\Xilinx\Vivado\2012.2\bin;C:\Xilinx\14.2\ISE_DS\PlanAhead\bin;C:\Xilinx\14.2\ISE_DS\EDK\bin\nt;C:\Xilinx\14.2\ISE_DS\EDK\lib\nt;C:\Xilinx\14.2\ISE_DS\EDK\gnu\microblaze\nt\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnu\powerpc-eabi\nt\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnuwin\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnu\arm\nt\bin;C:\Xilinx\14.2\ISE_DS\common\bin\nt;C:\Xilinx\14.2\ISE_DS\common\lib\nt;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Users\micae\AppData\Local\Microsoft\WindowsApps"/>
+          <item stringID="value" value="C:\Xilinx\14.2\ISE_DS\ISE\\lib\nt;C:\Xilinx\14.2\ISE_DS\ISE\\bin\nt;C:\Xilinx\14.2\ISE_DS\ISE\bin\nt;C:\Xilinx\14.2\ISE_DS\ISE\lib\nt;C:\Xilinx\Vivado\2012.2\bin;C:\Xilinx\14.2\ISE_DS\PlanAhead\bin;C:\Xilinx\14.2\ISE_DS\EDK\bin\nt;C:\Xilinx\14.2\ISE_DS\EDK\lib\nt;C:\Xilinx\14.2\ISE_DS\EDK\gnu\microblaze\nt\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnu\powerpc-eabi\nt\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnuwin\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnu\arm\nt\bin;C:\Xilinx\14.2\ISE_DS\common\bin\nt;C:\Xilinx\14.2\ISE_DS\common\lib\nt;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\MATLAB\R2017b\runtime\win64;C:\Program Files\MATLAB\R2017b\bin;C:\Users\micae\AppData\Local\Microsoft\WindowsApps"/>
         </row>
         <row stringID="row" value="1">
           <item stringID="variable" value="PATHEXT"/>
@@ -63,7 +63,7 @@
     </task>
     <task stringID="PAR_DEVICE_UTILIZATION">
       <section stringID="PAR_DESIGN_SUMMARY">
-        <item AVAILABLE="960" dataType="int" stringID="PAR_SLICES" value="402"></item>
+        <item AVAILABLE="960" dataType="int" stringID="PAR_SLICES" value="472"></item>
       </section>
     </task>
     <task stringID="PAR_PAR">
@@ -92,9 +92,9 @@
             <item label="Routed" stringID="ROUTED" value="ROUTED"/>
             <item label="Resource" stringID="RESOURCE" value="BUFGMUX_X2Y11"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
-            <item dataType="float" label="Fanout" stringID="FANOUT" value="106.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.032000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.071000"/>
+            <item dataType="float" label="Fanout" stringID="FANOUT" value="123.000000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.034000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.072000"/>
           </row>
         </table>
       </section>
@@ -579,7 +579,7 @@
           </row>
           <row stringID="row" value="70">
             <item label="Pin&#xA;Number" sort="smart" stringID="Pin_Number" value="H12"/>
-            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;1>"/>
+            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;6>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L06N_1/A5/RHCLK5"/>
             <item stringID="Direction" value="OUTPUT"/>
@@ -719,7 +719,7 @@
           </row>
           <row stringID="row" value="89">
             <item label="Pin&#xA;Number" sort="smart" stringID="Pin_Number" value="L13"/>
-            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;5>"/>
+            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;2>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L03P_1/A12"/>
             <item stringID="Direction" value="OUTPUT"/>
@@ -734,7 +734,7 @@
           </row>
           <row stringID="row" value="90">
             <item label="Pin&#xA;Number" sort="smart" stringID="Pin_Number" value="L14"/>
-            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;0>"/>
+            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;7>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L03N_1/A11"/>
             <item stringID="Direction" value="OUTPUT"/>
@@ -835,7 +835,7 @@
           </row>
           <row stringID="row" value="102">
             <item label="Pin&#xA;Number" sort="smart" stringID="Pin_Number" value="M12"/>
-            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;6>"/>
+            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;1>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L02P_1/A14"/>
             <item stringID="Direction" value="OUTPUT"/>
@@ -951,7 +951,7 @@
           </row>
           <row stringID="row" value="115">
             <item label="Pin&#xA;Number" sort="smart" stringID="Pin_Number" value="N11"/>
-            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;3>"/>
+            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;4>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L10P_2/VS2/A19"/>
             <item stringID="Direction" value="OUTPUT"/>
@@ -973,7 +973,7 @@
           </row>
           <row stringID="row" value="117">
             <item label="Pin&#xA;Number" sort="smart" stringID="Pin_Number" value="N13"/>
-            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;7>"/>
+            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;0>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L01P_1/A16"/>
             <item stringID="Direction" value="OUTPUT"/>
@@ -988,7 +988,7 @@
           </row>
           <row stringID="row" value="118">
             <item label="Pin&#xA;Number" sort="smart" stringID="Pin_Number" value="N14"/>
-            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;2>"/>
+            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;5>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L01N_1/A15"/>
             <item stringID="Direction" value="OUTPUT"/>
@@ -1093,7 +1093,7 @@
           </row>
           <row stringID="row" value="130">
             <item label="Pin&#xA;Number" sort="smart" stringID="Pin_Number" value="P12"/>
-            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;4>"/>
+            <item label="Signal&#xA;Name" stringID="Signal_Name" value="disp_ctrl&lt;3>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L11P_2/VS0/A17"/>
             <item stringID="Direction" value="OUTPUT"/>

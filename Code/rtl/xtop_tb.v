@@ -25,6 +25,8 @@ module xtop_tb;
 
    reg ps2_data;
    reg ps2_clk;
+	
+	
 
    wire push_AC;
    wire push_C;
@@ -79,8 +81,10 @@ module xtop_tb;
      // assert reset for 1 clock cycle
       #(clk_period+1)
       rst = 1;
-      #clk_period;
+      #clk_period
       rst = 0;
+
+		
       
       //
       // Run picoVersat

@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.28xd on Thu Nov 29 23:00:14 2018
+// Written by: Map P.28xd on Tue Dec 04 16:54:12 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -9,14 +9,14 @@ COMP "ps2_clk" LOCATE = SITE "B1" LEVEL 1;
 PIN ps2_clk_pin<0> = BEL "ps2_clk" PINNAME PAD;
 PIN "ps2_clk_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
 COMP "push_AC" LOCATE = SITE "A7" LEVEL 1;
-COMP "disp_ctrl<0>" LOCATE = SITE "L14" LEVEL 1;
-COMP "disp_ctrl<1>" LOCATE = SITE "H12" LEVEL 1;
-COMP "disp_ctrl<2>" LOCATE = SITE "N14" LEVEL 1;
-COMP "disp_ctrl<3>" LOCATE = SITE "N11" LEVEL 1;
-COMP "disp_ctrl<4>" LOCATE = SITE "P12" LEVEL 1;
-COMP "disp_ctrl<5>" LOCATE = SITE "L13" LEVEL 1;
-COMP "disp_ctrl<6>" LOCATE = SITE "M12" LEVEL 1;
-COMP "disp_ctrl<7>" LOCATE = SITE "N13" LEVEL 1;
+COMP "disp_ctrl<0>" LOCATE = SITE "N13" LEVEL 1;
+COMP "disp_ctrl<1>" LOCATE = SITE "M12" LEVEL 1;
+COMP "disp_ctrl<2>" LOCATE = SITE "L13" LEVEL 1;
+COMP "disp_ctrl<3>" LOCATE = SITE "P12" LEVEL 1;
+COMP "disp_ctrl<4>" LOCATE = SITE "N11" LEVEL 1;
+COMP "disp_ctrl<5>" LOCATE = SITE "N14" LEVEL 1;
+COMP "disp_ctrl<6>" LOCATE = SITE "H12" LEVEL 1;
+COMP "disp_ctrl<7>" LOCATE = SITE "L14" LEVEL 1;
 COMP "disp_ctrl<8>" LOCATE = SITE "F12" LEVEL 1;
 COMP "disp_ctrl<9>" LOCATE = SITE "J12" LEVEL 1;
 COMP "ps2_data" LOCATE = SITE "C3" LEVEL 1;
@@ -63,13 +63,20 @@ TIMEGRP clk = BEL "controller/negative" BEL "controller/carry" BEL
         "ps2/data_out_1" BEL "ps2/data_out_2" BEL "ps2/data_out_3" BEL
         "ps2/data_out_4" BEL "ps2/data_out_5" BEL "ps2/data_out_7" BEL
         "ps2/data_out_8" BEL "ps2/data_out_6" BEL "disp/AN_1" BEL "disp/AN_0"
-        BEL "disp/data_out_5" BEL "disp/CAT_1" BEL "disp/CAT_0" BEL
-        "disp/data_out_10" BEL "disp/data_out_1" BEL "disp/previous_state" BEL
-        "disp/sign_1" BEL "disp/sign_0" BEL "gpo/data_out_7" BEL
-        "gpo/data_out_6" BEL "gpo/data_out_5" BEL "gpo/data_out_4" BEL
-        "gpo/data_out_3" BEL "gpo/data_out_2" BEL "gpo/data_out_1" BEL
-        "gpo/data_out_0" BEL "disp/data_out_0" BEL "disp/data_out_7" BEL
-        "disp/data_out_8" BEL "disp/data_out_9" BEL "disp/data_out_3" BEL
+        BEL "disp/data_out_1" BEL "disp/data_out_5" BEL "disp/data_out_6" BEL
+        "disp/data_out_7" BEL "disp/data_out_9" BEL "disp/data_out_11" BEL
+        "disp/ones_0" BEL "disp/data_out_2" BEL "disp/data_out_3" BEL
+        "disp/previous_state" BEL "disp/sign_1" BEL "disp/sign_0" BEL
+        "disp/disp_10" BEL "disp/disp_9" BEL "disp/disp_8" BEL "disp/disp_7"
+        BEL "disp/disp_6" BEL "disp/disp_5" BEL "disp/disp_4" BEL
+        "disp/disp_3" BEL "disp/disp_2" BEL "disp/disp_1" BEL "disp/disp_0"
+        BEL "disp/ones_1" BEL "disp/ones_2" BEL "disp/ones_3" BEL
+        "disp/tens_0" BEL "disp/tens_1" BEL "disp/tens_2" BEL "disp/tens_3"
+        BEL "disp/hundreds_0" BEL "disp/hundreds_1" BEL "disp/hundreds_2" BEL
+        "disp/hundreds_3" BEL "gpo/data_out_7" BEL "gpo/data_out_6" BEL
+        "gpo/data_out_5" BEL "gpo/data_out_4" BEL "gpo/data_out_3" BEL
+        "gpo/data_out_2" BEL "gpo/data_out_1" BEL "gpo/data_out_0" BEL
+        "disp/data_out_8" BEL "disp/data_out_10" BEL "disp/data_out_4" BEL
         "prog/rom/instruction_30" BEL "prog/rom/instruction_29" BEL
         "prog/rom/instruction_28" BEL "prog/rom/instruction_4" BEL
         "prog/rom/instruction_2" BEL "prog/rom/instruction_1" BEL
