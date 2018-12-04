@@ -1,24 +1,24 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "E:/EComp/Calculadora/ISE/xtop_tb_isim_beh.exe" -prj "E:/EComp/Calculadora/ISE/xtop_tb_beh.prj" "work.xtop_tb" "work.glbl" 
+Running: C:\Xilinx\14.2\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o C:/Users/micae/ECOMPproj/ISE/xtop_tb_isim_beh.exe -prj C:/Users/micae/ECOMPproj/ISE/xtop_tb_beh.prj work.xtop_tb work.glbl 
 ISim P.28xd (signature 0x1048c146)
-Number of CPUs detected in this system: 4
-Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
-Analyzing Verilog file "E:/EComp/Calculadora/ISE/../Code/rtl/xprog_rom.v" into library work
-Analyzing Verilog file "E:/EComp/Calculadora/ISE/../Code/rtl/xprog_ram.v" into library work
-Analyzing Verilog file "E:/EComp/Calculadora/ISE/../Code/rtl/xregf.v" into library work
-Analyzing Verilog file "E:/EComp/Calculadora/ISE/../Code/rtl/xpushs.v" into library work
-Analyzing Verilog file "E:/EComp/Calculadora/ISE/../Code/rtl/xps2.v" into library work
-Analyzing Verilog file "E:/EComp/Calculadora/ISE/../Code/rtl/xprog.v" into library work
-Analyzing Verilog file "E:/EComp/Calculadora/ISE/../Code/rtl/xgpo.v" into library work
-Analyzing Verilog file "E:/EComp/Calculadora/ISE/../Code/rtl/xdisp.v" into library work
-Analyzing Verilog file "E:/EComp/Calculadora/ISE/../Code/rtl/xctrl.v" into library work
-Analyzing Verilog file "E:/EComp/Calculadora/ISE/../Code/rtl/xtop.v" into library work
-Analyzing Verilog file "E:/EComp/Calculadora/ISE/../Code/rtl/xtop_tb.v" into library work
+Analyzing Verilog file "C:/Users/micae/ECOMPproj/ISE/../Code/rtl/xprog_rom.v" into library work
+Analyzing Verilog file "C:/Users/micae/ECOMPproj/ISE/../Code/rtl/xprog_ram.v" into library work
+Analyzing Verilog file "C:/Users/micae/ECOMPproj/ISE/../Code/rtl/xregf.v" into library work
+Analyzing Verilog file "C:/Users/micae/ECOMPproj/ISE/../Code/rtl/xpushs.v" into library work
+Analyzing Verilog file "C:/Users/micae/ECOMPproj/ISE/../Code/rtl/xps2.v" into library work
+Analyzing Verilog file "C:/Users/micae/ECOMPproj/ISE/../Code/rtl/xprog.v" into library work
+Analyzing Verilog file "C:/Users/micae/ECOMPproj/ISE/../Code/rtl/xgpo.v" into library work
+Analyzing Verilog file "C:/Users/micae/ECOMPproj/ISE/../Code/rtl/xdisp.v" into library work
+Analyzing Verilog file "C:/Users/micae/ECOMPproj/ISE/../Code/rtl/xctrl.v" into library work
+Analyzing Verilog file "C:/Users/micae/ECOMPproj/ISE/../Code/rtl/xtop.v" into library work
+Analyzing Verilog file "C:/Users/micae/ECOMPproj/ISE/../Code/rtl/xtop_tb.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.2/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 222328 KB
-Fuse CPU Usage: 921 ms
+Fuse Memory Usage: 161388 KB
+Fuse CPU Usage: 265 ms
 Compiling module xctrl
 Compiling module xprog_rom
 Compiling module xprog_ram
@@ -34,6 +34,6 @@ Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
 Compiled 12 Verilog Units
-Built simulation executable E:/EComp/Calculadora/ISE/xtop_tb_isim_beh.exe
-Fuse Memory Usage: 226720 KB
-Fuse CPU Usage: 1202 ms
+Built simulation executable C:/Users/micae/ECOMPproj/ISE/xtop_tb_isim_beh.exe
+Fuse Memory Usage: 168912 KB
+Fuse CPU Usage: 390 ms

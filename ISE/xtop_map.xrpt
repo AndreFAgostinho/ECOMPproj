@@ -5,14 +5,14 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Map" timeStamp="Thu Nov 29 23:00:14 2018">
+  <application stringID="Map" timeStamp="Tue Dec 04 16:54:13 2018">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
         <column stringID="value"/>
         <row stringID="row" value="0">
           <item stringID="variable" value="Path"/>
-          <item stringID="value" value="C:\Xilinx\14.2\ISE_DS\ISE\\lib\nt;C:\Xilinx\14.2\ISE_DS\ISE\\bin\nt;C:\Xilinx\14.2\ISE_DS\ISE\bin\nt;C:\Xilinx\14.2\ISE_DS\ISE\lib\nt;C:\Xilinx\Vivado\2012.2\bin;C:\Xilinx\14.2\ISE_DS\PlanAhead\bin;C:\Xilinx\14.2\ISE_DS\EDK\bin\nt;C:\Xilinx\14.2\ISE_DS\EDK\lib\nt;C:\Xilinx\14.2\ISE_DS\EDK\gnu\microblaze\nt\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnu\powerpc-eabi\nt\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnuwin\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnu\arm\nt\bin;C:\Xilinx\14.2\ISE_DS\common\bin\nt;C:\Xilinx\14.2\ISE_DS\common\lib\nt;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Users\micae\AppData\Local\Microsoft\WindowsApps"/>
+          <item stringID="value" value="C:\Xilinx\14.2\ISE_DS\ISE\\lib\nt;C:\Xilinx\14.2\ISE_DS\ISE\\bin\nt;C:\Xilinx\14.2\ISE_DS\ISE\bin\nt;C:\Xilinx\14.2\ISE_DS\ISE\lib\nt;C:\Xilinx\Vivado\2012.2\bin;C:\Xilinx\14.2\ISE_DS\PlanAhead\bin;C:\Xilinx\14.2\ISE_DS\EDK\bin\nt;C:\Xilinx\14.2\ISE_DS\EDK\lib\nt;C:\Xilinx\14.2\ISE_DS\EDK\gnu\microblaze\nt\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnu\powerpc-eabi\nt\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnuwin\bin;C:\Xilinx\14.2\ISE_DS\EDK\gnu\arm\nt\bin;C:\Xilinx\14.2\ISE_DS\common\bin\nt;C:\Xilinx\14.2\ISE_DS\common\lib\nt;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\MATLAB\R2017b\runtime\win64;C:\Program Files\MATLAB\R2017b\bin;C:\Users\micae\AppData\Local\Microsoft\WindowsApps"/>
         </row>
         <row stringID="row" value="1">
           <item stringID="variable" value="PATHEXT"/>
@@ -73,17 +73,17 @@
         <item dataType="int" stringID="MAP_NUM_ERRORS" value="0"/>
         <item dataType="int" stringID="MAP_FILTERED_WARNINGS" value="0"/>
         <item dataType="int" stringID="MAP_NUM_WARNINGS" value="0"/>
-        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="240584"/>
+        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="240968"/>
         <item stringID="MAP_TOTAL_REAL_TIME" value="1 secs "/>
         <item stringID="MAP_TOTAL_CPU_TIME" value="1 secs "/>
       </section>
       <section stringID="MAP_SLICE_REPORTING">
-        <item AVAILABLE="1920" dataType="int" label="Number of Slice Flip Flops" stringID="MAP_NUM_SLICE_FF" value="142"/>
-        <item AVAILABLE="1920" dataType="int" label="Number of 4 input LUTs" stringID="MAP_NUM_4_INPUT_LUT" value="737">
-          <item dataType="int" label="Number of route-thrus" stringID="MAP_NUM_LUT_RT" value="16"/>
+        <item AVAILABLE="1920" dataType="int" label="Number of Slice Flip Flops" stringID="MAP_NUM_SLICE_FF" value="166"/>
+        <item AVAILABLE="1920" dataType="int" label="Number of 4 input LUTs" stringID="MAP_NUM_4_INPUT_LUT" value="878">
+          <item dataType="int" label="Number of route-thrus" stringID="MAP_NUM_LUT_RT" value="17"/>
           <item dataType="int" stringID="MAP_NUM_DP_RAM" value="4"/>
         </item>
-        <item AVAILABLE="960" dataType="int" label="Number of occupied Slices" stringID="MAP_OCCUPIED_SLICES" value="402">
+        <item AVAILABLE="960" dataType="int" label="Number of occupied Slices" stringID="MAP_OCCUPIED_SLICES" value="472">
           <item dataType="int" label="Number of Slices containing unrelated logic" stringID="MAP_NUM_SLICE_UNRELATED" value="0"/>
         </item>
       </section>
@@ -340,7 +340,7 @@
       </section>
       <section stringID="MAP_RPM_MACROS">
         <section stringID="MAP_SHAPE_SECTION">
-          <item dataType="int" stringID="MAP_NUM_SHAPE" value="8"/>
+          <item dataType="int" stringID="MAP_NUM_SHAPE" value="9"/>
         </section>
       </section>
       <section stringID="MAP_GUIDE_REPORT"/>
@@ -357,9 +357,9 @@
         <item stringID="MAP_INITP_05" value="0000000000000000000000000000000000000000000000000000000000000000"/>
         <item stringID="MAP_INITP_06" value="0000000000000000000000000000000000000000000000000000000000000000"/>
         <item stringID="MAP_INITP_07" value="0000000000000000000000000000000000000000000000000000000000000000"/>
-        <item stringID="MAP_INIT_00" value="00000000000000000000000000000000CFFFFEFC600000009000002480000022"/>
+        <item stringID="MAP_INIT_00" value="0000000000000000000000000000000000000000000000009000002360000022"/>
         <item stringID="MAP_INIT_01" value="0000000000000000000000000000000000000000000000000000000000000000"/>
-        <item stringID="MAP_INIT_02" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <item stringID="MAP_INIT_02" value="000000000000000000000000CFFFFEEB60000000000000000000000000000000"/>
         <item stringID="MAP_INIT_03" value="0000000000000000000000000000000000000000000000000000000000000000"/>
         <item stringID="MAP_INIT_04" value="0000000000000000000000000000000000000000000000000000000000000000"/>
         <item stringID="MAP_INIT_05" value="0000000000000000000000000000000000000000000000000000000000000000"/>

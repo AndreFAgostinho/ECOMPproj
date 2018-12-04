@@ -4,13 +4,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: xtop.prj
 
@@ -130,7 +130,6 @@ Compiling verilog file "../Code/rtl/xgpo.v" in library work
 Compiling verilog include file "../Code/rtl/xdefs.vh"
 Module <xprog> compiled
 Compiling verilog file "../Code/rtl/xdisp.v" in library work
-Compiling verilog include file "../Code/rtl/xdefs.vh"
 Module <xgpo> compiled
 Compiling verilog file "../Code/rtl/xctrl.v" in library work
 Compiling verilog include file "../Code/rtl/xdefs.vh"
@@ -213,8 +212,8 @@ Module <xgpo> is correct for synthesis.
 =========================================================================
 
 Performing bidirectional port resolution...
-INFO:Xst:2679 - Register <i> in unit <xdisp> has a constant value of 1100 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <shift<0>> in unit <xdisp> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <i> in unit <xdisp> has a constant value of 11111111111111111111111111111111 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <data_out<0>> in unit <xdisp> has a constant value of 1 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <xctrl>.
     Related source file is "../Code/rtl/xctrl.v".
@@ -284,23 +283,56 @@ Unit <xpushs> synthesized.
 
 Synthesizing Unit <xdisp>.
     Related source file is "../Code/rtl/xdisp.v".
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <CAT> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 4x4-bit ROM for signal <AN$rom0000>.
-    Found 16x4-bit ROM for signal <CAT$rom0000>.
-    Found 12-bit register for signal <data_out>.
+    Found 16x4-bit ROM for signal <old_CAT_3$rom0000>.
+    Found 11-bit register for signal <data_out<11:1>>.
+    Found 4-bit adder for signal <$add0000> created at line 55.
+    Found 4-bit adder for signal <$add0001> created at line 55.
+    Found 4-bit adder for signal <$add0002> created at line 55.
+    Found 4-bit adder for signal <$add0003> created at line 53.
+    Found 4-bit adder for signal <$add0004> created at line 55.
+    Found 4-bit adder for signal <$add0005> created at line 53.
+    Found 4-bit adder for signal <$add0006> created at line 55.
+    Found 4-bit adder for signal <$add0007> created at line 53.
+    Found 4-bit adder for signal <$add0008> created at line 55.
+    Found 4-bit adder for signal <$add0009> created at line 51.
+    Found 4-bit adder for signal <$add0010> created at line 53.
+    Found 4-bit adder for signal <$add0011> created at line 55.
+    Found 4-bit adder for signal <$add0012> created at line 51.
+    Found 4-bit adder for signal <$add0013> created at line 53.
+    Found 4-bit adder for signal <$add0014> created at line 55.
     Found 2-bit up counter for signal <AN>.
-    Found 4-bit register for signal <CAT>.
-    Found 4-bit 4-to-1 multiplexer for signal <CAT$mux0000> created at line 75.
+    Found 11-bit register for signal <disp>.
+    Found 11-bit adder for signal <disp$addsub0000> created at line 34.
     Found 4-bit register for signal <hundreds>.
+    Found 4-bit comparator greatequal for signal <hundreds$cmp_ge0000> created at line 50.
+    Found 4-bit comparator greatequal for signal <hundreds$cmp_ge0001> created at line 50.
+    Found 4-bit comparator greatequal for signal <hundreds_0$cmp_ge0000> created at line 52.
+    Found 4-bit comparator greatequal for signal <hundreds_0$cmp_ge0001> created at line 52.
+    Found 4-bit comparator greatequal for signal <hundreds_0$cmp_ge0002> created at line 52.
+    Found 4-bit comparator greatequal for signal <hundreds_0$cmp_ge0003> created at line 52.
+    Found 4-bit comparator greatequal for signal <hundreds_0$cmp_ge0004> created at line 52.
+    Found 1-bit xor2 for signal <hundreds_3$xor0000> created at line 28.
     Found 4-bit register for signal <ones>.
     Found 1-bit register for signal <previous_state>.
-    Found 22-bit register for signal <shift<22:1>>.
-    Found 1-bit xor2 for signal <shift_10$xor0000> created at line 30.
     Found 4-bit register for signal <sign>.
     Found 4-bit register for signal <tens>.
+    Found 4-bit comparator greatequal for signal <tens_0$cmp_ge0000> created at line 54.
+    Found 4-bit comparator greatequal for signal <tens_0$cmp_ge0001> created at line 54.
+    Found 4-bit comparator greatequal for signal <tens_0$cmp_ge0002> created at line 54.
+    Found 4-bit comparator greatequal for signal <tens_0$cmp_ge0003> created at line 54.
+    Found 4-bit comparator greatequal for signal <tens_0$cmp_ge0004> created at line 54.
+    Found 4-bit comparator greatequal for signal <tens_0$cmp_ge0005> created at line 54.
+    Found 4-bit comparator greatequal for signal <tens_0$cmp_ge0006> created at line 54.
+    Found 4-bit comparator greatequal for signal <tens_0$cmp_ge0007> created at line 54.
     Summary:
 	inferred   2 ROM(s).
 	inferred   1 Counter(s).
-	inferred  55 D-type flip-flop(s).
+	inferred  39 D-type flip-flop(s).
+	inferred  16 Adder/Subtractor(s).
+	inferred  15 Comparator(s).
 	inferred   4 Multiplexer(s).
 Unit <xdisp> synthesized.
 
@@ -360,26 +392,28 @@ Macro Statistics
  16x32-bit ROM                                         : 1
  16x4-bit ROM                                          : 1
  4x4-bit ROM                                           : 1
-# Adders/Subtractors                                   : 7
+# Adders/Subtractors                                   : 23
  10-bit adder                                          : 1
+ 11-bit adder                                          : 1
  32-bit adder carry out                                : 1
  32-bit subtractor                                     : 1
  33-bit addsub                                         : 1
- 4-bit adder                                           : 1
+ 4-bit adder                                           : 16
  9-bit adder                                           : 2
 # Counters                                             : 2
  2-bit up counter                                      : 1
  8-bit up counter                                      : 1
-# Registers                                            : 65
- 1-bit register                                        : 50
- 11-bit register                                       : 1
+# Registers                                            : 51
+ 1-bit register                                        : 39
+ 11-bit register                                       : 2
  2-bit register                                        : 1
  32-bit register                                       : 5
- 4-bit register                                        : 6
+ 4-bit register                                        : 2
  8-bit register                                        : 1
  9-bit register                                        : 1
-# Comparators                                          : 2
+# Comparators                                          : 17
  10-bit comparator greatequal                          : 1
+ 4-bit comparator greatequal                           : 15
  8-bit comparator less                                 : 1
 # Multiplexers                                         : 2
  32-bit 4-to-1 multiplexer                             : 1
@@ -395,49 +429,10 @@ Macro Statistics
 =========================================================================
 
 INFO:Xst:2261 - The FF/Latch <sign_1> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <sign_3> 
-INFO:Xst:2261 - The FF/Latch <shift_1> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <sign_2> 
-INFO:Xst:2261 - The FF/Latch <shift_12> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <ones_0> 
-INFO:Xst:2261 - The FF/Latch <shift_13> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <ones_1> 
-INFO:Xst:2261 - The FF/Latch <shift_14> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <ones_2> 
-INFO:Xst:2261 - The FF/Latch <shift_15> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <ones_3> 
-INFO:Xst:2261 - The FF/Latch <shift_16> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <tens_0> 
-INFO:Xst:2261 - The FF/Latch <shift_21> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <hundreds_1> 
-INFO:Xst:2261 - The FF/Latch <shift_17> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <tens_1> 
-INFO:Xst:2261 - The FF/Latch <shift_22> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <hundreds_2> 
-INFO:Xst:2261 - The FF/Latch <shift_18> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <tens_2> 
-INFO:Xst:2261 - The FF/Latch <shift_19> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <tens_3> 
-INFO:Xst:2261 - The FF/Latch <shift_20> in Unit <disp> is equivalent to the following FF/Latch, which will be removed : <hundreds_0> 
 WARNING:Xst:1426 - The value init of the FF/Latch sign_1 hinder the constant cleaning in the block disp.
    You should achieve better results by setting this init to 1.
-WARNING:Xst:1710 - FF/Latch <data_out_11> (without init value) has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <shift_1> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_2> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_3> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_4> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_5> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_6> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_7> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_8> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_9> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_10> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_11> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_12> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_13> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_14> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_15> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_16> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_17> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_18> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_19> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_20> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_21> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_22> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hundreds_3> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sign_2> has a constant value of 0 in block <disp>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <scan_code_0> of sequential type is unconnected in block <ps2>.
-
-Synthesizing (advanced) Unit <xdisp>.
-INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_CAT_rom0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-Unit <xdisp> synthesized (advanced).
 
 Synthesizing (advanced) Unit <xprog_rom>.
 INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom__varindex0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
@@ -518,20 +513,23 @@ Macro Statistics
  16x32-bit ROM                                         : 1
  16x4-bit ROM                                          : 1
  4x4-bit ROM                                           : 1
-# Adders/Subtractors                                   : 7
+# Adders/Subtractors                                   : 23
  10-bit adder                                          : 1
+ 11-bit adder                                          : 1
+ 3-bit adder                                           : 2
  32-bit adder carry out                                : 1
  32-bit subtractor                                     : 1
  33-bit addsub                                         : 1
- 4-bit adder                                           : 1
+ 4-bit adder                                           : 14
  9-bit adder                                           : 2
 # Counters                                             : 2
  2-bit up counter                                      : 1
  8-bit up counter                                      : 1
-# Registers                                            : 199
- Flip-Flops                                            : 199
-# Comparators                                          : 2
+# Registers                                            : 183
+ Flip-Flops                                            : 183
+# Comparators                                          : 17
  10-bit comparator greatequal                          : 1
+ 4-bit comparator greatequal                           : 15
  8-bit comparator less                                 : 1
 # Multiplexers                                         : 2
  32-bit 4-to-1 multiplexer                             : 1
@@ -549,47 +547,8 @@ WARNING:Xst:1426 - The value init of the FF/Latch sign_3 hinder the constant cle
    You should achieve better results by setting this init to 1.
 WARNING:Xst:1426 - The value init of the FF/Latch sign_1 hinder the constant cleaning in the block xdisp.
    You should achieve better results by setting this init to 1.
-WARNING:Xst:1710 - FF/Latch <data_out_11> (without init value) has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_1> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sign_2> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_2> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_3> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_4> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_5> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_6> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_7> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_8> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_9> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_10> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_11> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_12> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ones_0> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ones_1> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_13> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_14> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ones_2> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_15> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ones_3> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_16> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tens_0> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tens_1> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_17> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_18> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tens_2> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_19> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tens_3> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_20> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hundreds_0> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_21> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hundreds_1> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <shift_22> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hundreds_2> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hundreds_3> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sign_2> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <sign_1> in Unit <xdisp> is equivalent to the following FF/Latch, which will be removed : <sign_3> 
-WARNING:Xst:1293 - FF/Latch <CAT_2> has a constant value of 0 in block <xdisp>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <CAT_1> in Unit <xdisp> is equivalent to the following FF/Latch, which will be removed : <CAT_3> 
-INFO:Xst:2261 - The FF/Latch <data_out_5> in Unit <xdisp> is equivalent to the following FF/Latch, which will be removed : <data_out_4> 
-INFO:Xst:2261 - The FF/Latch <data_out_1> in Unit <xdisp> is equivalent to the following FF/Latch, which will be removed : <data_out_2> 
 INFO:Xst:2261 - The FF/Latch <instruction_1> in Unit <xprog_rom> is equivalent to the following 4 FFs/Latches, which will be removed : <instruction_3> <instruction_5> <instruction_6> <instruction_7> 
 INFO:Xst:2261 - The FF/Latch <instruction_2> in Unit <xprog_rom> is equivalent to the following 20 FFs/Latches, which will be removed : <instruction_8> <instruction_9> <instruction_10> <instruction_11> <instruction_12> <instruction_13> <instruction_14> <instruction_15> <instruction_16> <instruction_17> <instruction_18> <instruction_19> <instruction_20> <instruction_21> <instruction_22> <instruction_23> <instruction_24> <instruction_25> <instruction_26> <instruction_27> 
 INFO:Xst:2261 - The FF/Latch <instruction_4> in Unit <xprog_rom> is equivalent to the following FF/Latch, which will be removed : <instruction_31> 
@@ -599,7 +558,6 @@ Optimizing unit <xtop> ...
 Optimizing unit <xps2> ...
 
 Optimizing unit <xdisp> ...
-INFO:Xst:2261 - The FF/Latch <data_out_3> in Unit <xdisp> is equivalent to the following FF/Latch, which will be removed : <data_out_6> 
 
 Optimizing unit <xgpo> ...
 
@@ -637,7 +595,7 @@ INFO:Xst:2399 - RAMs <regf/Mram_reg_22>, <regf/Mram_reg_232> are equivalent, sec
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block xtop, actual ratio is 41.
+Found area constraint ratio of 100 (+ 5) on block xtop, actual ratio is 49.
 
 Final Macro Processing ...
 
@@ -645,8 +603,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 142
- Flip-Flops                                            : 142
+# Registers                                            : 166
+ Flip-Flops                                            : 166
 
 =========================================================================
 
@@ -675,28 +633,28 @@ Design Statistics
 # IOs                              : 26
 
 Cell Usage :
-# BELS                             : 1040
+# BELS                             : 1211
 #      GND                         : 1
-#      INV                         : 38
-#      LUT1                        : 16
-#      LUT2                        : 49
-#      LUT3                        : 186
-#      LUT3_D                      : 15
-#      LUT3_L                      : 8
-#      LUT4                        : 332
-#      LUT4_D                      : 22
-#      LUT4_L                      : 71
-#      MUXCY                       : 135
-#      MUXF5                       : 33
+#      INV                         : 47
+#      LUT1                        : 17
+#      LUT2                        : 53
+#      LUT2_L                      : 5
+#      LUT3                        : 177
+#      LUT3_D                      : 19
+#      LUT3_L                      : 4
+#      LUT4                        : 441
+#      LUT4_D                      : 34
+#      LUT4_L                      : 79
+#      MUXCY                       : 145
+#      MUXF5                       : 44
 #      VCC                         : 1
-#      XORCY                       : 133
-# FlipFlops/Latches                : 142
-#      FD                          : 4
-#      FDE                         : 71
-#      FDR                         : 20
-#      FDRE                        : 2
+#      XORCY                       : 144
+# FlipFlops/Latches                : 166
+#      FD                          : 6
+#      FDE                         : 94
+#      FDR                         : 22
 #      FDRS                        : 43
-#      FDS                         : 2
+#      FDS                         : 1
 # RAMS                             : 3
 #      RAM16X1D                    : 2
 #      RAMB16_S36_S36              : 1
@@ -712,10 +670,10 @@ Device utilization summary:
 
 Selected Device : 3s100ecp132-4 
 
- Number of Slices:                      385  out of    960    40%  
- Number of Slice Flip Flops:            142  out of   1920     7%  
- Number of 4 input LUTs:                741  out of   1920    38%  
-    Number used as logic:               737
+ Number of Slices:                      459  out of    960    47%  
+ Number of Slice Flip Flops:            166  out of   1920     8%  
+ Number of 4 input LUTs:                880  out of   1920    45%  
+    Number used as logic:               876
     Number used as RAMs:                  4
  Number of IOs:                          26
  Number of bonded IOBs:                  26  out of     83    31%  
@@ -743,7 +701,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 145   |
+clk                                | BUFGP                  | 169   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -754,9 +712,9 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 18.847ns (Maximum Frequency: 53.059MHz)
-   Minimum input arrival time before clock: 5.183ns
-   Maximum output required time after clock: 4.310ns
+   Minimum period: 20.325ns (Maximum Frequency: 49.200MHz)
+   Minimum input arrival time before clock: 5.042ns
+   Maximum output required time after clock: 4.283ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -765,76 +723,45 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 18.847ns (frequency: 53.059MHz)
-  Total number of paths / destination ports: 1519096 / 328
+  Clock period: 20.325ns (frequency: 49.200MHz)
+  Total number of paths / destination ports: 2265427 / 373
 -------------------------------------------------------------------------
-Delay:               18.847ns (Levels of Logic = 46)
-  Source:            prog/ram/Mram_mem (RAM)
-  Destination:       controller/regA_31 (FF)
+Delay:               20.325ns (Levels of Logic = 15)
+  Source:            disp/disp_6 (FF)
+  Destination:       disp/data_out_4 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: prog/ram/Mram_mem to controller/regA_31
+  Data Path: disp/disp_6 to disp/data_out_4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     RAMB16_S36_S36:CLKB->DOB0    3   2.800   0.535  prog/ram/Mram_mem (prog/data_from_ram<0>)
-     LUT4:I3->O            1   0.704   0.000  controller/Madd_data_addr_addsub0000_lut<0> (controller/Madd_data_addr_addsub0000_lut<0>)
-     MUXCY:S->O            1   0.464   0.000  controller/Madd_data_addr_addsub0000_cy<0> (controller/Madd_data_addr_addsub0000_cy<0>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_data_addr_addsub0000_cy<1> (controller/Madd_data_addr_addsub0000_cy<1>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_data_addr_addsub0000_cy<2> (controller/Madd_data_addr_addsub0000_cy<2>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_data_addr_addsub0000_cy<3> (controller/Madd_data_addr_addsub0000_cy<3>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_data_addr_addsub0000_cy<4> (controller/Madd_data_addr_addsub0000_cy<4>)
-     XORCY:CI->O           5   0.804   0.668  controller/Madd_data_addr_addsub0000_xor<5> (controller/data_addr_addsub0000<5>)
-     LUT3:I2->O           24   0.704   1.256  controller/data_addr<5>1 (data_addr<5>)
-     LUT4:I3->O            1   0.704   0.424  controller/regB_we11_SW4 (N225)
-     LUT4:I3->O           47   0.704   1.302  controller/regB_we2 (controller/data_to_rd_int_and0000)
-     LUT4:I2->O            4   0.704   0.666  controller/Mmux_data_to_rd_int2811 (controller/data_to_rd_int<0>)
-     LUT2:I1->O            1   0.704   0.000  controller/Madd_temp_regA_addsub0002_lut<0> (controller/Madd_temp_regA_addsub0002_lut<0>)
-     MUXCY:S->O            1   0.464   0.000  controller/Madd_temp_regA_addsub0002_cy<0> (controller/Madd_temp_regA_addsub0002_cy<0>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<1> (controller/Madd_temp_regA_addsub0002_cy<1>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<2> (controller/Madd_temp_regA_addsub0002_cy<2>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<3> (controller/Madd_temp_regA_addsub0002_cy<3>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<4> (controller/Madd_temp_regA_addsub0002_cy<4>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<5> (controller/Madd_temp_regA_addsub0002_cy<5>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<6> (controller/Madd_temp_regA_addsub0002_cy<6>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<7> (controller/Madd_temp_regA_addsub0002_cy<7>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<8> (controller/Madd_temp_regA_addsub0002_cy<8>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<9> (controller/Madd_temp_regA_addsub0002_cy<9>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<10> (controller/Madd_temp_regA_addsub0002_cy<10>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<11> (controller/Madd_temp_regA_addsub0002_cy<11>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<12> (controller/Madd_temp_regA_addsub0002_cy<12>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<13> (controller/Madd_temp_regA_addsub0002_cy<13>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<14> (controller/Madd_temp_regA_addsub0002_cy<14>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<15> (controller/Madd_temp_regA_addsub0002_cy<15>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<16> (controller/Madd_temp_regA_addsub0002_cy<16>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<17> (controller/Madd_temp_regA_addsub0002_cy<17>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<18> (controller/Madd_temp_regA_addsub0002_cy<18>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<19> (controller/Madd_temp_regA_addsub0002_cy<19>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<20> (controller/Madd_temp_regA_addsub0002_cy<20>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<21> (controller/Madd_temp_regA_addsub0002_cy<21>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<22> (controller/Madd_temp_regA_addsub0002_cy<22>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<23> (controller/Madd_temp_regA_addsub0002_cy<23>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<24> (controller/Madd_temp_regA_addsub0002_cy<24>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<25> (controller/Madd_temp_regA_addsub0002_cy<25>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<26> (controller/Madd_temp_regA_addsub0002_cy<26>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<27> (controller/Madd_temp_regA_addsub0002_cy<27>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<28> (controller/Madd_temp_regA_addsub0002_cy<28>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<29> (controller/Madd_temp_regA_addsub0002_cy<29>)
-     MUXCY:CI->O           1   0.059   0.000  controller/Madd_temp_regA_addsub0002_cy<30> (controller/Madd_temp_regA_addsub0002_cy<30>)
-     XORCY:CI->O           3   0.804   0.610  controller/Madd_temp_regA_addsub0002_xor<31> (controller/temp_regA_addsub0002<31>)
-     LUT3_L:I1->LO         1   0.704   0.104  controller/regA_nxt<31>139_SW0 (N365)
-     LUT4:I3->O            1   0.704   0.000  controller/regA_nxt<31>139 (controller/regA_nxt<31>139)
-     FDRS:D                    0.308          controller/regA_31
+     FDE:C->Q             18   0.591   1.072  disp/disp_6 (disp/disp_6)
+     LUT4:I3->O            4   0.704   0.666  disp/tens_0_mux0002_SW0 (N117)
+     LUT3_D:I1->O          6   0.704   0.704  disp/tens_0_mux0002 (disp/Madd__add0003_cy<0>)
+     LUT3:I2->O            1   0.704   0.000  disp/ones_mux0010_G (N324)
+     MUXF5:I1->O          11   0.321   1.012  disp/ones_mux0010 (disp/Madd__add0006_lut<2>)
+     LUT4:I1->O            4   0.704   0.591  disp/tens_0_cmp_ge00041 (disp/tens_0_cmp_ge0004)
+     LUT4_D:I3->O          1   0.704   0.455  disp/tens_0_cmp_ge0005_SW1 (N113)
+     LUT3:I2->O            6   0.704   0.673  disp/tens_0_cmp_ge0005 (disp/tens_0_cmp_ge0005)
+     LUT4:I3->O            5   0.704   0.668  disp/ones_mux00151 (disp/Madd__add0011_lut<3>)
+     LUT3_D:I2->O          5   0.704   0.668  disp/tens_0_mux00061 (disp/Madd__add0013_cy<0>)
+     LUT3:I2->O            1   0.704   0.424  disp/CAT_mux001111 (disp/N28)
+     LUT4:I3->O            2   0.704   0.482  disp/hundreds_0_mux00041 (disp/hundreds_0_mux0004)
+     LUT3:I2->O            1   0.704   0.455  disp/CAT_mux00112 (disp/CAT_mux0011)
+     LUT3:I2->O            1   0.704   0.000  disp/Mmux__old_CAT_3_2_f5_G (N316)
+     MUXF5:I1->O           7   0.321   0.712  disp/Mmux__old_CAT_3_2_f5 (disp/_old_CAT_3<0>)
+     LUT4:I3->O            2   0.704   0.447  disp/Mrom_old_CAT_3_rom000031 (disp/Mrom_old_CAT_3_rom00003)
+     FDS:S                     0.911          disp/data_out_4
     ----------------------------------------
-    Total                     18.847ns (13.282ns logic, 5.565ns route)
-                                       (70.5% logic, 29.5% route)
+    Total                     20.325ns (11.296ns logic, 9.029ns route)
+                                       (55.6% logic, 44.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 149 / 130
+  Total number of paths / destination ports: 142 / 123
 -------------------------------------------------------------------------
-Offset:              5.183ns (Levels of Logic = 2)
+Offset:              5.042ns (Levels of Logic = 2)
   Source:            rst (PAD)
   Destination:       controller/regB_0 (FF)
   Destination Clock: clk rising
@@ -843,43 +770,43 @@ Offset:              5.183ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            52   1.218   1.444  rst_IBUF (rst_IBUF)
-     LUT4:I0->O           32   0.704   1.262  controller/regB_not00011 (controller/regB_not0001)
+     IBUF:I->O            50   1.218   1.303  rst_IBUF (rst_IBUF)
+     LUT4:I2->O           32   0.704   1.262  controller/regB_not00011 (controller/regB_not0001)
      FDE:CE                    0.555          controller/regB_0
     ----------------------------------------
-    Total                      5.183ns (2.477ns logic, 2.706ns route)
-                                       (47.8% logic, 52.2% route)
+    Total                      5.042ns (2.477ns logic, 2.565ns route)
+                                       (49.1% logic, 50.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 19 / 19
 -------------------------------------------------------------------------
-Offset:              4.310ns (Levels of Logic = 1)
-  Source:            disp/data_out_3 (FF)
-  Destination:       disp_ctrl<6> (PAD)
+Offset:              4.283ns (Levels of Logic = 1)
+  Source:            gpo/data_out_7 (FF)
+  Destination:       gpo_out<7> (PAD)
   Source Clock:      clk rising
 
-  Data Path: disp/data_out_3 to disp_ctrl<6>
+  Data Path: gpo/data_out_7 to gpo_out<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDS:C->Q              2   0.591   0.447  disp/data_out_3 (disp/data_out_3)
-     OBUF:I->O                 3.272          disp_ctrl_6_OBUF (disp_ctrl<6>)
+     FDE:C->Q              1   0.591   0.420  gpo/data_out_7 (gpo/data_out_7)
+     OBUF:I->O                 3.272          gpo_out_7_OBUF (gpo_out<7>)
     ----------------------------------------
-    Total                      4.310ns (3.863ns logic, 0.447ns route)
-                                       (89.6% logic, 10.4% route)
+    Total                      4.283ns (3.863ns logic, 0.420ns route)
+                                       (90.2% logic, 9.8% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.75 secs
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 12.06 secs
  
 --> 
 
-Total memory usage is 267236 kilobytes
+Total memory usage is 267684 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   74 (   0 filtered)
-Number of infos    :   61 (   0 filtered)
+Number of warnings :   17 (   0 filtered)
+Number of infos    :   44 (   0 filtered)
 

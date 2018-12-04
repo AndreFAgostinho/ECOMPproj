@@ -16,6 +16,7 @@ module xtop (
 		  input				ps2_data,
 		  input				ps2_clk,
 		  
+
 		  // Push button signals
 		  input				push_AC,
 		  input				push_C,
@@ -62,7 +63,7 @@ module xtop (
 	reg					pushs_sel;
     reg                 pushs_rst;
 	wire [1:0]			pushs_data_to_rd;
-	reg					disp_sel;
+  	reg					disp_sel;
     reg                 disp_rst;
     reg                 gpo_sel;
     reg                 gpo_rst;
@@ -127,7 +128,7 @@ module xtop (
         pushs_rst = 1'b0;
 		ps2_sel = 1'b0;
         ps2_rst = 1'b0;
-		disp_sel = 1'b0;
+			disp_sel =1'b0;
         disp_rst = 1'b0;
         gpo_sel = 1'b0;
         gpo_rst = 1'b0;
@@ -159,9 +160,11 @@ module xtop (
 	    else if(`PS2_BASE == data_addr) begin
 	        ps2_sel =1'b1;
 			  data_to_rd = ps2_data_to_rd;
+			
 		 end
-	    else if(`DISP_BASE == data_addr)
-	        disp_sel =1'b1;
+	  else if(`DISP_BASE == data_addr)
+	      disp_sel =1'b1;
+			  
         else if (`GPO_BASE == data_addr)
 	        gpo_sel = 1'b1;
 	  
