@@ -1,0 +1,18 @@
+#
+# Counter!
+#
+_loop_1    nop
+    rdw PS2_BASE
+    wrw DISP_BASE
+    ldi 0
+    beqi _loop_1
+
+
+
+
+#finish program by jumping back to boot ROM
+	ldi 0
+	beqi PROG_ROM
+	nop
+    nop
+
