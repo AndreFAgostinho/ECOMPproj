@@ -8,91 +8,91 @@ module xdisp (
 			input	 [10:0]	data_in, // Number input with Overflow bit
 			output reg[11:0]	data_out // 7 segment display control signals
 	      );
-reg [1:0]AN=4'b0;
+reg [1:0]AN=2'b0;
 reg [3:0]CAT=4'b0;
 reg [10:0]disp=4'b0;
 reg [3:0]sign=4'b0;
-reg previous_state;
 reg [3:0] hundreds;
 reg[3:0] tens;
 reg [3:0] ones;
 integer i;
+reg [19:0] refresh_disp=20'b0;
 
 	
 		
-always @(posedge clk) begin
+always @(posedge clk)
+	begin
 	
-	if (rst) data_out <= 12'b0;
-	if (AN==4) AN<=2'b00;
+	if (rst) disp = 11'b0;
 	
-	if (sel==previous_state) AN <= AN+1;
+	else if (sel) 
+		begin
+		if(data_in[10]== 1'b1) 
+			begin
+			disp = -data_in;
+			sign<=4'b1010; // "-" in A4
+			end
+		else 
+			begin
+			disp = data_in;
+			sign<= 4'b1011; //nothing in the A4
+			end
 		
-		  else begin
-
-		           if(data_in[10]== 1'b1) begin
-			         
-			          disp <= -data_in;
-			          sign<=4'b1010; // "-" in A4
-		           end
-		           else begin
-			          sign<= 4'b1011; //nothing in the A4
-			          disp <= data_in;
-       			   end
-		
-        
-      
 		hundreds = 4'd0;
 		tens = 4'd0;
 		ones = 4'd0;
-		for(i=10; i>=0;i=i-1)
-		begin
 		
-		if (hundreds >= 5)
-			hundreds =hundreds+3;
-		if (tens >= 5)
-			tens= tens+3;
-			if(ones >=5)
-			ones=ones+3;
+		for(i=10; i>=0;i=i-1)
+			begin
+			if (hundreds >= 5) hundreds =hundreds+3;
+		   if (tens >= 5) tens= tens+3;
+			if(ones >=5) ones=ones+3;
 
 		//shift left one
-		hundreds = hundreds <<1;
-		hundreds[0]=tens [3];
-		tens = tens <<1;
-		tens[0]=ones[3];
-		ones=ones <<1;
-		ones[0]= disp[i];
-	   
-		end
-		AN <= 2'b00; 
-		
-		previous_state <= sel;
+			hundreds = hundreds <<1;
+			hundreds[0]=tens [3];
+			tens = tens <<1;
+			tens[0]=ones[3];
+			ones=ones <<1;
+			ones[0]= disp[i];
+			end
+		refresh_disp=20'b0;
 		end
 		
+	refresh_disp = refresh_disp + 1;
+	AN = refresh_disp[19:18]; 
 		
-		if(AN==0) CAT=ones;
-		else if(AN==1) CAT =tens;
-		else if (AN==2) CAT=hundreds;
-		else CAT=sign;
+	end
+		
+
+		
+always @(*) begin
+		
 		case(AN)
 		2'b00: begin 
-		data_out[11:8] <= 4'b0001; // "A1"
+		data_out[11:8] <= 4'b1110; // "A1"
+		CAT = ones;
 		 
 		end
 		2'b01: begin
-		data_out[11:8] <= 4'b0010; // "A2"
+		data_out[11:8] <= 4'b1101; // "A2"
+		CAT = tens;
 		
 		end
 		2'b10: begin
-		data_out[11:8] <= 4'b0100; // "A3"
-		
+		data_out[11:8] <= 4'b1011; // "A3"
+		CAT = hundreds;
 
 		end
 		2'b11: begin
-		data_out[11:8] <= 4'b1000; // "A4"
+		data_out[11:8] <= 4'b0111; // "A4"
+		CAT = sign;
 		
 		end
 		endcase
+end
 
+always @(*) begin
 	        case(CAT)
         4'b0000: data_out[7:0] <= 8'b00000011; // "0"     
         4'b0001: data_out[7:0] <= 8'b10011111; // "1" 
@@ -107,8 +107,8 @@ always @(posedge clk) begin
 		  4'b1010: data_out[7:0] <= 8'b11111101; // "-"
         default: data_out[7:0] <= 8'b11111111; // "none"
         endcase
-		end
-    
+end
+  
 
 
 endmodule
