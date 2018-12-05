@@ -185,7 +185,7 @@ module xtop (
 	       .clk(clk),
 	       
 	       //host interface (external)
-	       .ext_we(1'b1),
+	       .ext_we(1'b0),
 	       .ext_addr(4'b0),
 	       .ext_data_in(32'b1),
 	       .ext_data_out(),

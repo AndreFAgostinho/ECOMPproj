@@ -1,24 +1,23 @@
 #
 # Counter!
 #
-	ldi 34
+	ldi -999
     wrw R1 # start at zero
-    # R1 is the counter variable
-_loop_1    rdw R1
+# R1 is the counter variable
+loop_1 rdw R1
     wrw DISP_BASE
 
     addi 1
     wrw R1 # increment R1 by one
-    ldi 0
 
-    ## Delay
-    ldi 25000 # 1 ms delay (25k * 2 cycles / 50000 kHz = 1 ms)
-_delay_1 nop
-    bneqi _delay_1
+## Delay
+    ldi 2500000 # 1 ms delay (2500k * 2 cycles / 50000 kHz = 100 ms)
+delay_1 bneqi delay_1
     nop
     nop
-    ## end delay
-    beqi _loop_1
+## end delay
+    ldi 0
+    beqi loop_1
 
 
 
