@@ -44,11 +44,11 @@ ret1 nop
 # handle +
 handle_plus ldi 10 # 10 mean plus
     wrw R15
-    ldi 0
-
+    
     ldi 0x0F
     wrw GPO_BASE
-
+    
+    ldi 0
     beqi end_signal_handles # skip minus handler
 # handle -
 handle_minus ldi 11 # 11 means minus
@@ -129,5 +129,5 @@ acquire_key nop
         wrw R1 # R1 <- key code. R1 now only contains the key code
 
         ldi 0
-        beq R10 # return
+        beqi R10 # return
 ## end acquire_key - key code is in R1

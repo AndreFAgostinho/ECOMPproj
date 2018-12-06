@@ -114,6 +114,20 @@ module xdict;
     // keycode constants
     $fwrite(fp, "\"KEY_PLUS\":%d,\n", 8'h79);
     $fwrite(fp, "\"KEY_MINUS\":%d,\n", 8'h7B);
+	$fwrite (fp, "\"KEY_MULT\": %d, \n", 8'h7C);
+	$fwrite (fp, "\"KEY_DIV\": %d, \n", 8'h4A);
+	$fwrite (fp, "\"KEY_ENTER\": %d, \n", 8'h5A);
+	$fwrite (fp, "\"KEY_0\": %d, \n", 8'h70);
+	$fwrite (fp, "\"KEY_1\": %d, \n", 8'h69);
+	$fwrite (fp, "\"KEY_2\": %d, \n", 8'h72);
+	$fwrite (fp, "\"KEY_3\": %d, \n", 8'h7A);
+	$fwrite (fp, "\"KEY_4\": %d, \n", 8'h6B);
+	$fwrite (fp, "\"KEY_5\": %d, \n", 8'h73);
+	$fwrite (fp, "\"KEY_6\": %d, \n", 8'h74);
+	$fwrite (fp, "\"KEY_7\": %d, \n", 8'h6C);
+	$fwrite (fp, "\"KEY_8\": %d, \n", 8'h75);
+	$fwrite (fp, "\"KEY_9\": %d, \n", 8'h7D);
+
 
       // Finish writing dictionary
       $fwrite(fp,"}\n");
