@@ -111,6 +111,10 @@ module xdict;
       // direct output to LED module
       $fwrite(fp, "\"GPO_BASE\":%d,\n", `GPO_BASE);
 
+    // keycode constants
+    $fwrite(fp, "\"KEY_PLUS\":%d,\n", 8'h79);
+    $fwrite(fp, "\"KEY_MINUS\":%d,\n", 8'h7B);
+
       // Finish writing dictionary
       $fwrite(fp,"}\n");
       $fclose(fp);
