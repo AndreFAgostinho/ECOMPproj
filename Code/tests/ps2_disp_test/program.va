@@ -1,13 +1,12 @@
 #
 # Counter!
 #
-_loop_1    nop
-    rdw PS2_BASE
+loop_1  rdw PS2_BASE
     wrw DISP_BASE
     ldi 0
-    beqi _loop_1
-
-
+    beqi loop_1
+    nop
+    bop
 
 
 #finish program by jumping back to boot ROM
