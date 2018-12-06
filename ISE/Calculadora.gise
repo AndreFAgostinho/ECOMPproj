@@ -136,13 +136,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1543964266" xil_pn:in_ck="3262812340017687749" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1543964266">
+    <transform xil_pn:end_ts="1544116467" xil_pn:in_ck="3262812340017687749" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1544116467">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="../Code/rtl/xcprint.v"/>
       <outfile xil_pn:name="../Code/rtl/xctrl.v"/>
       <outfile xil_pn:name="../Code/rtl/xctrldefs.vh"/>
@@ -173,14 +169,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1543964266" xil_pn:in_ck="3262812340017687749" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1543964266">
+    <transform xil_pn:end_ts="1544116468" xil_pn:in_ck="3262812340017687749" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1544116467">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="../Code/rtl/xcprint.v"/>
       <outfile xil_pn:name="../Code/rtl/xctrl.v"/>
       <outfile xil_pn:name="../Code/rtl/xctrldefs.vh"/>
@@ -199,14 +190,9 @@
       <outfile xil_pn:name="../Code/rtl/xtop.v"/>
       <outfile xil_pn:name="../Code/rtl/xtop_tb.v"/>
     </transform>
-    <transform xil_pn:end_ts="1543964269" xil_pn:in_ck="3262812340017687749" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7445366287371861041" xil_pn:start_ts="1543964266">
+    <transform xil_pn:end_ts="1544116474" xil_pn:in_ck="3262812340017687749" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7445366287371861041" xil_pn:start_ts="1544116468">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
@@ -214,12 +200,9 @@
       <outfile xil_pn:name="xtop_tb_beh.prj"/>
       <outfile xil_pn:name="xtop_tb_isim_beh.exe"/>
     </transform>
-    <transform xil_pn:end_ts="1543964269" xil_pn:in_ck="4673126918445379919" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7968014291667258382" xil_pn:start_ts="1543964269">
+    <transform xil_pn:end_ts="1544116474" xil_pn:in_ck="-6048082190312222436" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7968014291667258382" xil_pn:start_ts="1544116474">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xtop_tb_isim_beh.wdb"/>
@@ -260,7 +243,7 @@
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name=".lso"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>

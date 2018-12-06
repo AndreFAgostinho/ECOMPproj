@@ -15,6 +15,8 @@ ak1 ldi ret1
     bneqi acquire_key
 ret1 nop
 
+    ldi 0x01
+    wrw GPO_BASE
 
 # if(R1 == KEY_PLUS)
     ldi KEY_PLUS
@@ -23,6 +25,9 @@ ret1 nop
     xor R2 # key code XOR comp key code - 0 if equal
     beqi handle_plus # skip if
 # if(R1 == KEY_MINUS)
+
+    ldi 0x03
+    wrw GPO_BASE
     ldi KEY_MINUS
     wrw R2 # R2 <- key code for compare
     rdw R1
@@ -30,6 +35,9 @@ ret1 nop
     beqi handle_minus # skip if
 # else ignore_keycode
 # jump to acquire_key
+
+    ldi 0x07
+    wrw GPO_BASE
     ldi 0
     beqi ak1
 
@@ -37,15 +45,25 @@ ret1 nop
 handle_plus ldi 10 # 10 mean plus
     wrw R15
     ldi 0
+
+    ldi 0x0F
+    wrw GPO_BASE
+
     beqi end_signal_handles # skip minus handler
 # handle -
 handle_minus ldi 11 # 11 means minus
     wrw R15
+
+    ldi 0x1F
+    wrw GPO_BASE
+
 end_signal_handles
 
     rdw R15
     wrw DISP_BASE
 
+stop ldi 0
+beqi stop
 # number keycodes
 # 0 | 70
 # 1 | 69
