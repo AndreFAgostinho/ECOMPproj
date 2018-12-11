@@ -1,6 +1,8 @@
 # START
 
 start	nop
+	ldi 0
+	wrw R14
 
 acquire_key	rdw PS2_BASE
 	wrw R1 
@@ -155,9 +157,26 @@ keyenter	ldi KEY_ENTER
 	bneqi acquire_key
 	ldi 14
 	wrw R15
+	ldi 1
+	add R14
+	wrw R14
+	ldi 3
+	xor R14
+	beqi print
+	nop
 
 end_handles	nop
+# Do operation
 	rdw R15
+	wrw OPER_BASE
+
+
+
+# Print result when the third enter is pressed
+
+print	rdw R15
+	wrw OPER_BASE
+	rdw OP_BASE
 	wrw DISP_BASE
 ## Delay
 	ldi 2500000 # 1 ms delay (2500k * 2 cycles / 50000 kHz = 100 ms)
@@ -168,21 +187,6 @@ delay_1	bneqi delay_1
 	ldi 0
 	beqi start
 	nop
-
-	
-	
-
-# Do operation
-#wrw OPER_BASE
-
-
-
-# Print result when the third enter is pressed
-#ldi OPER_BASE
-#addi 1
-#wrw R14
-#rdw R14 (read OPER_BASE +1)
-#wrw DISP_BASE
 
 # loop to start
 #ldi 0

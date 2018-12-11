@@ -172,7 +172,7 @@ module xtop (
 	        gpo_sel = 1'b1;
 	else if (`OPER_BASE == data_addr) 
 		oper_sel =1'b1;
-	else if (`OPER_BASE+1 == data_addr)
+	else if (`OP_BASE == data_addr)
 		data_to_rd=oper_data_to_rd;
 	
 

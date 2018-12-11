@@ -22,5 +22,6 @@
 `define PS2_BASE	`ADDR_W'h022 //34
 `define DISP_BASE	`ADDR_W'h023 //35
 `define GPO_BASE	`ADDR_W'h024 //36
-`define OPER_BASE	`ADDR_W'h026 //38-39
+`define OPER_BASE	`ADDR_W'h025 //37
+`define OP_BASE		`ADDR_W'h026 //38
 `define PROG_BASE `ADDR_W'h200 //512-1024

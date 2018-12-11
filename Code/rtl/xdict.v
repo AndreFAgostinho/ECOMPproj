@@ -113,6 +113,7 @@ module xdict;
 	  
 	//operation controller
       $fwrite(fp, "\"OPER_BASE\":%d,\n", `OPER_BASE);
+      $fwrite(fp, "\"OP_BASE\":%d,\n", `OP_BASE);
 
     // keycode constants
     $fwrite(fp, "\"KEY_PLUS\":%d,\n", 8'h79);
