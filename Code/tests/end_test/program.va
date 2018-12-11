@@ -25,7 +25,6 @@ acquire_key	rdw PS2_BASE
 
 decoder	ldi KEY_0
 	xor R1
-	wrw DISP_BASE
 	bneqi key_1
 	nop
 	ldi 0
@@ -34,7 +33,6 @@ decoder	ldi KEY_0
 	nop
 key_1	ldi KEY_1
 	xor R1
-	wrw DISP_BASE
 	bneqi key_2
 	nop
 	nop
@@ -161,6 +159,16 @@ keyenter	ldi KEY_ENTER
 end_handles	nop
 	rdw R15
 	wrw DISP_BASE
+## Delay
+	ldi 2500000 # 1 ms delay (2500k * 2 cycles / 50000 kHz = 100 ms)
+delay_1	bneqi delay_1
+	nop
+	nop
+## end delay
+	ldi 0
+	beqi start
+	nop
+
 	
 	
 
@@ -177,10 +185,10 @@ end_handles	nop
 #wrw DISP_BASE
 
 # loop to start
-	ldi 0
-	beqi start
-	nop
-	nop
+#ldi 0
+#beqi start
+#nop
+#nop
 
 # (never) finish program by jumping back to boot ROM
 finish	nop
