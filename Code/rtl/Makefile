@@ -1,7 +1,7 @@
 # definitions
 VC = iverilog
 CFLAGS = -W all -I. -g2005-sv -D DEBUG
-SRC = xctrl.v xprog_ram.v xprog_rom.v xregf.v xcprint.v xprog.v xtop.v xtop_tb.v xpushs.v xps2.v xdisp.v xgpo.v
+SRC = xctrl.v xprog_ram.v xprog_rom.v xregf.v xcprint.v xprog.v xtop.v xtop_tb.v xpushs.v xps2.v xdisp.v xgpo.v xoper.v
 XDEFS = $(wildcard *.vh)
 
 

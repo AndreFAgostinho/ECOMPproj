@@ -67,6 +67,8 @@ module xtop (
     reg                 disp_rst;
     reg                 gpo_sel;
     reg                 gpo_rst;
+	reg 				oper_sel;
+	wire [10:0]			oper_data_to_rd;
 
 
    //
@@ -128,10 +130,11 @@ module xtop (
         pushs_rst = 1'b0;
 		ps2_sel = 1'b0;
         ps2_rst = 1'b0;
-			disp_sel =1'b0;
+		disp_sel =1'b0;
         disp_rst = 1'b0;
         gpo_sel = 1'b0;
         gpo_rst = 1'b0;
+		oper_sel =1'b0;
 		
 `ifdef DEBUG
         cprt_sel = 1'b0;
@@ -167,7 +170,13 @@ module xtop (
 			  
         else if (`GPO_BASE == data_addr)
 	        gpo_sel = 1'b1;
-	  
+	else if (`OPER_BASE == data_addr) 
+		oper_sel =1'b1;
+	else if (`OPER_BASE+1 == data_addr)
+		data_to_rd=oper_data_to_rd;
+	
+
+			
 `ifdef DEBUG	
         else if(data_sel === 1'b1)
             $display("Warning: unmapped controller issued data address %x at time %f", data_addr, $time);
@@ -240,6 +249,15 @@ module xtop (
 	    .rst(gpo_rst),
 	    .data_in(data_to_wr[7:0]),
 	    .data_out(gpo_out)
-    );
+	    );
+
+xoper oper (
+	    .clk(clk),
+            .sel(oper_sel),
+	    .rst(rst),
+	    .data_in(data_to_wr[10:0]),
+	    .data_out(oper_data_to_rd)
+	    );
+	
 			
 endmodule

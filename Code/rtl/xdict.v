@@ -110,6 +110,9 @@ module xdict;
 
       // direct output to LED module
       $fwrite(fp, "\"GPO_BASE\":%d,\n", `GPO_BASE);
+	  
+	//operation controller
+      $fwrite(fp, "\"OPER_BASE\":%d,\n", `OPER_BASE);
 
     // keycode constants
     $fwrite(fp, "\"KEY_PLUS\":%d,\n", 8'h79);
