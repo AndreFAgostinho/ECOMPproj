@@ -87,7 +87,7 @@ always @(negedge(sel))
 			11'b1011: operator = 2'b01; //sub
 			11'b1100: operator = 2'b10; //mult
 			11'b1101: operator = 2'b11; //div
-		endcase;
+		endcase
 		end
 
 	else if (scan_counter == 5)
@@ -119,17 +119,19 @@ always @(negedge(sel))
 		if (data_in == 11'b1110)
 			begin
 			case (operator)
-				2'b00 : data_out = operand1 + operand2;
-				2'b01 : data_out = operand1 - operand2;		
-			endcase;
+				2'b00 : data_out <= operand1 + operand2;
+				2'b01 : data_out <= operand1 - operand2;	
+					//mult here
+					//div here
+			endcase
 		end
 	end
 	
-	if (scan_counter < 9) scan_counter <= scan_counter + 1;
+	if (scan_counter < 9) scan_counter = scan_counter + 1;
 	else 
 		begin
-		scan_counter <= 0;
-		n_enter <= 0;
+		scan_counter = 0;
+		n_enter = 0;
 		end
 
 	end // always @(negedge(sel))
