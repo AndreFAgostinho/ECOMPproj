@@ -1,58 +1,40 @@
 # START
 
-start nop
+start	nop
 
-# Acquire operands and operation
-
-## acquire_key routine
-acquire_key nop
-        # wait for new key press
-        rdw PS2_BASE
-        wrw R1 # store the ps2 module output unchanged
-        ## RA >> 8 to get new key bit (maybe optimizable with a loop)
-        shft 1 #1
-        shft 1 #2
-        shft 1 #3
-        shft 1 #4
-        shft 1 #5
-        shft 1 #6
-        shft 1 #7
-        shft 1 #8
-
-        beqi acquire_key # loop
-        nop
-        nop
-
-#take out the valid bit from the ps2 output
-        ldi 0x0FF # mask for 8 last bits
-        wrw R2 # R2 <- mask
-        rdw R1 # RA <- R1
-        and R2 # R1 AND mask
-        wrw R1 # R1 <- key code. R1 now only contains the key code
+acquire_key	rdw PS2_BASE
+	wrw R1 
+	shft 1 #1
+	shft 1 #2
+	shft 1 #3
+	shft 1 #4
+	shft 1 #5
+	shft 1 #6
+	shft 1 #7
+	shft 1 #8
+	beqi acquire_key 
+	nop
+	ldi 0x0FF 
+	wrw R2 # R2 <- mask
+	rdw R1 # RA <- R1
+	and R2 # R1 AND mask
+	wrw R1 # R1 <- key code. R1 now only contains the key code
 	ldi 0
 	beqi decoder
-	nop	
 	nop
-## end acquire_key - key code is in R1
 
-decoder	nop
-	ldi KEY_0
-	wrw R2
-	rdw R1
-	xor R2 # key code XOR comp key code - 0 if equal
+decoder	ldi KEY_0
+	xor R1
+	wrw DISP_BASE
 	bneqi key_1
-	nop
 	nop
 	ldi 0
 	wrw R15
 	beqi end_handles
 	nop
-	nop
-key_1	nop
-	ldi KEY_1
-	wrw R2
-	rdw R1
-	xor R2
+key_1	ldi KEY_1
+	xor R1
+	wrw DISP_BASE
 	bneqi key_2
 	nop
 	nop
@@ -61,184 +43,123 @@ key_1	nop
 	ldi 0
 	beqi end_handles
 	nop	
-	nop
-key_2 	nop
-	ldi KEY_2
-	wrw R2
-	rdw R1
-	xor R2
+key_2	ldi KEY_2
+	xor R1
 	bneqi key_3
-	nop
 	nop
 	ldi 2
 	wrw R15
 	ldi 0
 	beqi end_handles
 	nop
-	nop
-key_3	nop
-	ldi KEY_3
-	wrw R2
-	rdw R1
-	xor R2
+key_3	ldi KEY_3
+	xor R1
 	bneqi key_4
-	nop
 	nop
 	ldi 3
 	wrw R15
 	ldi 0
 	beqi end_handles
 	nop
-	nop
-key_4 	nop
-	ldi KEY_4
-	wrw R2
-	rdw R1
-	xor R2
+key_4	ldi KEY_4
+	xor R1
 	bneqi key_5
-	nop
 	nop
 	ldi 4
 	wrw R15
 	ldi 0
 	beqi end_handles
 	nop
-	nop
-key_5 	nop
-	nop
-	nop
-	ldi KEY_5
-	wrw R2
-	rdw R1
-	xor R2
+key_5	ldi KEY_5
+	xor R1
 	bneqi key_6
-	nop
 	nop
 	ldi 5
 	wrw R15
 	ldi 0
 	beqi end_handles
 	nop
-	nop
-key_6 	nop
-	ldi KEY_6
-	wrw R2
-	rdw R1
-	xor R2
+key_6	ldi KEY_6
+	xor R1
 	bneqi key_7
-	nop
 	nop
 	ldi 6
 	wrw R15
 	ldi 0
 	beqi end_handles
-key_7 	nop
-	ldi KEY_7
-	wrw R2
-	rdw R1
-	xor R2
-	bneqi key_8
 	nop
+key_7	ldi KEY_7
+	xor R1
+	bneqi key_8
 	nop
 	ldi 7
 	wrw R15
 	ldi 0
 	beqi end_handles
 	nop
-	nop
-key_8 	nop
-	ldi KEY_8
-	wrw R2
-	rdw R1
-	xor R2
+key_8	ldi KEY_8
+	xor R1
 	bneqi key_9
-	nop
 	nop
 	ldi 8
 	wrw R15
 	ldi 0
 	beqi end_handles
 	nop
-	nop
-key_9 	nop
-	ldi KEY_9
-	wrw R2
-	rdw R1
-	xor R2
+key_9	ldi KEY_9
+	xor R1
 	bneqi keyplus
-	nop
 	nop
 	ldi 9
 	wrw R15
 	ldi 0
 	beqi end_handles
 	nop
-	nop
 keyplus	nop
 	ldi KEY_PLUS
-	wrw R2
-	rdw R1
-	xor R2
+	xor R1
 	bneqi keyminus
-	nop
 	nop
 	ldi 10
 	wrw R15
 	ldi 0
 	beqi end_handles
 	nop
-	nop
-keyminus	nop
-	ldi KEY_MINUS
-	wrw R2
-	rdw R1
-	xor R2
+keyminus	ldi KEY_MINUS
+	xor R1
 	bneqi keymult
-	nop
 	nop
 	ldi 11
 	wrw R15
 	ldi 0
 	beqi end_handles
 	nop
-	nop
-keymult	nop
-	ldi KEY_MULT
-	wrw R2
-	rdw R1
-	xor R2
+keymult	ldi KEY_MULT
+	xor R1
 	bneqi keydiv
-	nop
 	nop
 	ldi 12
 	wrw R15
 	ldi 0
 	beqi end_handles
 	nop
-	nop
-keydiv	nop
-	ldi KEY_DIV
-	wrw R2
-	rdw R1
-	xor R2
+keydiv	ldi KEY_DIV
+	xor R1
 	bneqi keyenter
-	nop
 	nop
 	ldi 13
 	wrw R15
 	ldi 0
 	beqi end_handles
 	nop
-	nop
-keyenter	nop
-	ldi KEY_ENTER
-	wrw R2
-	rdw R1
-	xor R2
+keyenter	ldi KEY_ENTER
+	xor R1
+	bneqi acquire_key
 	ldi 14
 	wrw R15
 
-end_handles rdw R15
+end_handles	nop
+	rdw R15
 	wrw DISP_BASE
 	
 	
@@ -257,16 +178,16 @@ end_handles rdw R15
 
 # loop to start
 	ldi 0
-        beqi start
-        nop
-        nop
+	beqi start
+	nop
+	nop
 
 # (never) finish program by jumping back to boot ROM
 finish	nop
-        ldi 0
-        beqi PROG_ROM
-        nop
-        nop
+	ldi 0
+	beqi PROG_ROM
+	nop
+	nop
 
 
 
