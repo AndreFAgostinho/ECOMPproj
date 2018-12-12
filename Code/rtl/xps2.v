@@ -17,6 +17,7 @@ reg previous_state;
 reg trigger;
 reg trig_arr;
 reg [7:0] downcounter= 8'b0;	
+reg previous_sel;
 	
 	
 always @(posedge clk) begin	
@@ -29,6 +30,7 @@ always @(posedge clk) begin
 		trigger <= 1'b0;
 		downcounter <= 8'b0;
 		previous_state <= 1'b0;
+		previous_sel <=1'b0;
 		end
 		if (downcounter< 249) begin			 
 			downcounter <= downcounter + 1;
@@ -63,7 +65,9 @@ always @(posedge clk) begin
 				data_out[8] <= 1'b1; 
 			end				
 		end					
-	
+		
+		if (sel == 0 && previous_sel ==1) data_out[8] <= 1'b0;
+		previous_sel <= sel;
 
 end
 	
