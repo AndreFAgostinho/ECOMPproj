@@ -6,8 +6,8 @@
 module xtop_tb;
    
    //parameters 
-   parameter clk_period = 1000;
-	parameter ps2_clk_period = 1000000;
+   parameter clk_period = 20;
+	parameter ps2_clk_period = 100000;
 
    //
    // Interface signals
@@ -35,9 +35,9 @@ module xtop_tb;
    reg [`DATA_W-1:0] data [2**`REGF_ADDR_W-1:0];
 	
 	// PS2 input data
-	reg [10:0] ps2_input_data [9:0];
+	reg [10:0] ps2_input_data [29:0];
 	reg [3:0] ps2_bit_index;
-	reg [3:0] ps2_byte_index;
+	reg [4:0] ps2_byte_index;
    
    // Instantiate the Unit Under Test (UUT)
    xtop uut (
@@ -71,23 +71,62 @@ module xtop_tb;
 		ps2_byte_index = 0;
 		ps2_bit_index = 0;
 		
-		for (k = 0; k < 10; k=k+1) begin
+		for (k = 0; k < 30; k=k+1) begin
 	   ps2_input_data[k][0] = 0;
 		ps2_input_data[k][9] = 1;
 		ps2_input_data[k][10] = 1;
 		end
 		
+		// +
 		ps2_input_data[0][8:1] = 8'h79;
-		ps2_input_data[1][8:1] = 8'h69;
-		ps2_input_data[2][8:1] = 8'h74;
-		ps2_input_data[3][8:1] = 8'h5A;
-		ps2_input_data[4][8:1] = 8'h79;
-		ps2_input_data[5][8:1] = 8'h5A;
-		ps2_input_data[6][8:1] = 8'h7B;
-		ps2_input_data[7][8:1] = 8'h75;
-		ps2_input_data[8][8:1] = 8'h7D;
-		ps2_input_data[9][8:1] = 8'h5A;		
-	
+		ps2_input_data[1][8:1] = 8'hF0;
+		ps2_input_data[2][8:1] = 8'h79;
+		
+		// 1
+		ps2_input_data[3][8:1] = 8'h69;
+		ps2_input_data[4][8:1] = 8'hF0;
+		ps2_input_data[5][8:1] = 8'h69;
+		
+		// 6
+		ps2_input_data[6][8:1] = 8'h74;
+		ps2_input_data[7][8:1] = 8'hF0;
+		ps2_input_data[8][8:1] = 8'h74;
+		
+		// <-
+		ps2_input_data[9][8:1] = 8'h5A;
+		ps2_input_data[10][8:1] = 8'hF0;
+		ps2_input_data[11][8:1] = 8'h5A;
+		
+		// +
+		ps2_input_data[12][8:1] = 8'h79;
+		ps2_input_data[13][8:1] = 8'hF0;
+		ps2_input_data[14][8:1] = 8'h79;
+		
+		// <-
+		ps2_input_data[15][8:1] = 8'h5A;
+		ps2_input_data[16][8:1] = 8'hF0;
+		ps2_input_data[17][8:1] = 8'h5A;
+		
+		// -
+		ps2_input_data[18][8:1] = 8'h7B;
+		ps2_input_data[19][8:1] = 8'hF0;
+		ps2_input_data[20][8:1] = 8'h7B;
+		
+		// 8
+		ps2_input_data[21][8:1] = 8'h75;
+		ps2_input_data[22][8:1] = 8'hF0;
+		ps2_input_data[23][8:1] = 8'h75;
+		
+		// 9
+		ps2_input_data[24][8:1] = 8'h7D;
+		ps2_input_data[25][8:1] = 8'hF0;
+		ps2_input_data[26][8:1] = 8'h7D;
+		
+		// <-
+		ps2_input_data[27][8:1] = 8'h5A;
+		ps2_input_data[28][8:1] = 8'hF0;
+		ps2_input_data[29][8:1] = 8'h5A;		
+		
 
      // assert reset for 1 clock cycle
       #(clk_period+1)
@@ -130,7 +169,7 @@ module xtop_tb;
 	  
 	always @(posedge(ps2_clk))
 		begin
-		if (ps2_byte_index < 10)
+		if (ps2_byte_index < 30)
 			ps2_data = ps2_input_data[ps2_byte_index][ps2_bit_index];
 		else ps2_data = 1;
 		

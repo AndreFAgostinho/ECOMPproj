@@ -17,22 +17,7 @@ acquire_key	rdw PS2_BASE
 	shft 1 #8
 	beqi acquire_key 
 	nop
-	rdw R13
-	addi 1
-	wrw R13
-	ldi 1
-	xor R13
-	beqi skip1
-	nop
-	ldi 2
-	xor R13
-	beqi acquire_key
-	nop
-	ldi 0
-	wrw R13
-	beqi acquire_key
-	nop
-skip1	nop
+	
 	ldi 0x0FF 
 	wrw R2 # R2 <- mask
 	rdw R1 # RA <- R1
@@ -186,7 +171,7 @@ end_handles	nop
 # Do operation
 	rdw R15
 	wrw OPER_BASE
-	wrw DISP_BASE
+    wrw DISP_BASE
 	ldi 0 
 	beqi acquire_key
 	nop
@@ -196,6 +181,7 @@ end_handles	nop
 
 print	rdw R15
 	wrw OPER_BASE
+    nop
 	rdw OP_BASE
 	wrw DISP_BASE
 ## Delay

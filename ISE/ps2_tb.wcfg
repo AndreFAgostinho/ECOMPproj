@@ -24,59 +24,9 @@
       <obj_property name="ObjectShortName">ps2_clk</obj_property>
    </wvobject>
    <wvobject fp_name="/xtop_tb/ps2_input_data" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">ps2_input_data[9:0,10:0]</obj_property>
-      <obj_property name="ObjectShortName">ps2_input_data[9:0,10:0]</obj_property>
+      <obj_property name="ElementShortName">ps2_input_data[29:0,10:0]</obj_property>
+      <obj_property name="ObjectShortName">ps2_input_data[29:0,10:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
-      <wvobject fp_name="/xtop_tb/ps2_input_data[9]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[9,10:0]</obj_property>
-         <obj_property name="ObjectShortName">ps2_input_data[9,10:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/xtop_tb/ps2_input_data[8]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[8,10:0]</obj_property>
-         <obj_property name="ObjectShortName">ps2_input_data[8,10:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/xtop_tb/ps2_input_data[7]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[7,10:0]</obj_property>
-         <obj_property name="ObjectShortName">ps2_input_data[7,10:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/xtop_tb/ps2_input_data[6]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[6,10:0]</obj_property>
-         <obj_property name="ObjectShortName">ps2_input_data[6,10:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/xtop_tb/ps2_input_data[5]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[5,10:0]</obj_property>
-         <obj_property name="ObjectShortName">ps2_input_data[5,10:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/xtop_tb/ps2_input_data[4]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[4,10:0]</obj_property>
-         <obj_property name="ObjectShortName">ps2_input_data[4,10:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/xtop_tb/ps2_input_data[3]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[3,10:0]</obj_property>
-         <obj_property name="ObjectShortName">ps2_input_data[3,10:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/xtop_tb/ps2_input_data[2]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[2,10:0]</obj_property>
-         <obj_property name="ObjectShortName">ps2_input_data[2,10:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/xtop_tb/ps2_input_data[1]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[1,10:0]</obj_property>
-         <obj_property name="ObjectShortName">ps2_input_data[1,10:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/xtop_tb/ps2_input_data[0]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[0,10:0]</obj_property>
-         <obj_property name="ObjectShortName">ps2_input_data[0,10:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="/xtop_tb/ps2_bit_index" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">ps2_bit_index[3:0]</obj_property>
@@ -84,9 +34,9 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/xtop_tb/ps2_byte_index" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">ps2_byte_index[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ps2_byte_index[3:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="ElementShortName">ps2_byte_index[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ps2_byte_index[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="divider54" type="divider">
       <obj_property name="label">ps2</obj_property>

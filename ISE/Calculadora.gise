@@ -123,7 +123,7 @@
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="xtop_par.xrpt"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="xtop_summary.html"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="xtop_summary.xml"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="xtop_tb_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="xtop_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="xtop_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="xtop_tb_isim_beh.wdb"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="xtop_tb_stx_beh.prj"/>
@@ -132,11 +132,11 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1543964266" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1543964266">
+    <transform xil_pn:end_ts="1544645303" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1544645303">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1544116467" xil_pn:in_ck="3262812340017687749" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1544116467">
+    <transform xil_pn:end_ts="1544645303" xil_pn:in_ck="-7311361038914512403" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1544645303">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="../Code/rtl/xcprint.v"/>
@@ -146,6 +146,7 @@
       <outfile xil_pn:name="../Code/rtl/xdict.v"/>
       <outfile xil_pn:name="../Code/rtl/xdisp.v"/>
       <outfile xil_pn:name="../Code/rtl/xgpo.v"/>
+      <outfile xil_pn:name="../Code/rtl/xoper.v"/>
       <outfile xil_pn:name="../Code/rtl/xprog.v"/>
       <outfile xil_pn:name="../Code/rtl/xprog_ram.v"/>
       <outfile xil_pn:name="../Code/rtl/xprog_rom.v"/>
@@ -157,19 +158,19 @@
       <outfile xil_pn:name="../Code/rtl/xtop.v"/>
       <outfile xil_pn:name="../Code/rtl/xtop_tb.v"/>
     </transform>
-    <transform xil_pn:end_ts="1543964266" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-2056532079685359017" xil_pn:start_ts="1543964266">
+    <transform xil_pn:end_ts="1544645303" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-2056532079685359017" xil_pn:start_ts="1544645303">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1543964266" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="4433671087694664281" xil_pn:start_ts="1543964266">
+    <transform xil_pn:end_ts="1544645303" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="4433671087694664281" xil_pn:start_ts="1544645303">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1543964266" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="1741784270718599853" xil_pn:start_ts="1543964266">
+    <transform xil_pn:end_ts="1544645303" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="1741784270718599853" xil_pn:start_ts="1544645303">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1544116468" xil_pn:in_ck="3262812340017687749" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1544116467">
+    <transform xil_pn:end_ts="1544645303" xil_pn:in_ck="-7311361038914512403" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1544645303">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="../Code/rtl/xcprint.v"/>
@@ -179,6 +180,7 @@
       <outfile xil_pn:name="../Code/rtl/xdict.v"/>
       <outfile xil_pn:name="../Code/rtl/xdisp.v"/>
       <outfile xil_pn:name="../Code/rtl/xgpo.v"/>
+      <outfile xil_pn:name="../Code/rtl/xoper.v"/>
       <outfile xil_pn:name="../Code/rtl/xprog.v"/>
       <outfile xil_pn:name="../Code/rtl/xprog_ram.v"/>
       <outfile xil_pn:name="../Code/rtl/xprog_rom.v"/>
@@ -190,7 +192,7 @@
       <outfile xil_pn:name="../Code/rtl/xtop.v"/>
       <outfile xil_pn:name="../Code/rtl/xtop_tb.v"/>
     </transform>
-    <transform xil_pn:end_ts="1544116474" xil_pn:in_ck="3262812340017687749" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7445366287371861041" xil_pn:start_ts="1544116468">
+    <transform xil_pn:end_ts="1544645308" xil_pn:in_ck="-7311361038914512403" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7445366287371861041" xil_pn:start_ts="1544645303">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="fuse.log"/>
@@ -200,7 +202,7 @@
       <outfile xil_pn:name="xtop_tb_beh.prj"/>
       <outfile xil_pn:name="xtop_tb_isim_beh.exe"/>
     </transform>
-    <transform xil_pn:end_ts="1544116474" xil_pn:in_ck="-6048082190312222436" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7968014291667258382" xil_pn:start_ts="1544116474">
+    <transform xil_pn:end_ts="1544645308" xil_pn:in_ck="4673126918445379919" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7968014291667258382" xil_pn:start_ts="1544645308">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="isim.cmd"/>
@@ -241,6 +243,7 @@
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <status xil_pn:value="OutputRemoved"/>
@@ -254,7 +257,6 @@
       <outfile xil_pn:name="xtop.stx"/>
       <outfile xil_pn:name="xtop.syr"/>
       <outfile xil_pn:name="xtop.xst"/>
-      <outfile xil_pn:name="xtop_tb_beh.prj"/>
       <outfile xil_pn:name="xtop_tb_stx_beh.prj"/>
       <outfile xil_pn:name="xtop_xst.xrpt"/>
     </transform>
