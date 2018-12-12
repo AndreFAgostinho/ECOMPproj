@@ -15,18 +15,10 @@ module xtop_tb;
    reg clk;
    reg rst;
 
-   //parallel interface
-   reg 	[`REGF_ADDR_W-1:0] par_addr;
-   reg 			   par_we;
-   reg [`DATA_W-1:0] 	   par_in;
-   wire [`DATA_W-1:0] 	   par_out;
-
    // calculator interface
 
    reg ps2_data;
    reg ps2_clk;
-	
-	
 
    wire push_AC;
    wire push_C;
@@ -41,6 +33,11 @@ module xtop_tb;
 
    // Testbench data memory
    reg [`DATA_W-1:0] data [2**`REGF_ADDR_W-1:0];
+	
+	// PS2 input data
+	reg [10:0] ps2_input_data [9:0];
+	reg [3:0] ps2_bit_index;
+	reg [3:0] ps2_byte_index;
    
    // Instantiate the Unit Under Test (UUT)
    xtop uut (
@@ -70,13 +67,27 @@ module xtop_tb;
       rst = 0;
 		ps2_clk = 1;
 		ps2_data = 1;
-			
+		
+		ps2_byte_index = 0;
+		ps2_bit_index = 0;
+		
+		for (k = 0; k < 10; k=k+1) begin
+	   ps2_input_data[k][0] = 0;
+		ps2_input_data[k][9] = 1;
+		ps2_input_data[k][10] = 1;
+		end
+		
+		ps2_input_data[0][8:1] = 8'h79;
+		ps2_input_data[1][8:1] = 8'h69;
+		ps2_input_data[2][8:1] = 8'h74;
+		ps2_input_data[3][8:1] = 8'h5A;
+		ps2_input_data[4][8:1] = 8'h79;
+		ps2_input_data[5][8:1] = 8'h5A;
+		ps2_input_data[6][8:1] = 8'h7B;
+		ps2_input_data[7][8:1] = 8'h75;
+		ps2_input_data[8][8:1] = 8'h7D;
+		ps2_input_data[9][8:1] = 8'h5A;		
 	
-      
-      // Initialize parallel interface
-      par_addr = 0;
-      par_we = 0;
-      par_in = 0;
 
      // assert reset for 1 clock cycle
       #(clk_period+1)
@@ -90,16 +101,7 @@ module xtop_tb;
       // Run picoVersat
       //
 
-      #(5*clk_period) par_addr = 0;
-      par_we = 1;
-      par_in = 1; //must be non-zero to jump to main program
-
       start_time = $time;
-
-      #clk_period par_we = 0;
-      par_addr = 0;
-
-      //wait for versat to reset R0
 		
       while(1'b1) #clk_period;
 
@@ -108,10 +110,6 @@ module xtop_tb;
       //
       // Dump reg file data to outfile
       //
-      for (k = 0; k < 2**`REGF_ADDR_W; k=k+1) begin
-	   data[k] = par_out;
-	 #clk_period par_addr = par_addr + 1;
-      end
   
       //$writememh("data_out.hex", data, 0, 2**`REGF_ADDR_W - 1);
 
@@ -130,7 +128,15 @@ module xtop_tb;
 	always
 	  #(ps2_clk_period/2) ps2_clk = ~ps2_clk;
 	  
-	
+	always @(posedge(ps2_clk))
+		begin
+		ps2_data = ps2_input_data[ps2_byte_index][ps2_bit_index];
+		if (ps2_bit_index == 10) begin
+			ps2_bit_index <= 0;
+			ps2_byte_index <= ps2_byte_index + 1;
+		end
+		else ps2_bit_index <= ps2_bit_index + 1;
+	end
 
    // show registers
    wire [`DATA_W-1:0] r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15;
