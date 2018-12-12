@@ -18,10 +18,13 @@ reg trigger;
 reg trig_arr;
 reg [7:0] downcounter= 8'b0;	
 reg previous_sel;
+reg  key_released;
+reg previous_key;
 	
 	
 always @(posedge clk) begin	
 				
+	
 		if (rst) begin
 		data_out <= 9'b0;
 		scan_code <= 11'b0;
@@ -45,11 +48,15 @@ always @(posedge clk) begin
 			if (ps2_clk != previous_state) begin			
 				if (!ps2_clk) begin				
 					count <= count + 1;
-					scan_code[10:0] <= {ps2_data, scan_code[10:1]};					
+					scan_code[10:0] <= {ps2_data, scan_code[10:1]};	
+				
 				end
 			end
 		
-			else if (count == 11) begin				
+			else if (count == 11) begin
+				
+				
+				
 				trig_arr <= 1'b1;	
 				count <=1'b0;
 			end	
@@ -61,14 +68,19 @@ always @(posedge clk) begin
 		
 		if (trigger) begin					
 			if (trig_arr) begin
-				data_out[7:0] <= scan_code[8:1];	
-				data_out[8] <= 1'b1; 
+				if (scan_code [8:1] == 8'hF0) key_released <= 1'b1;
+				if (key_released == 1 && scan_code[8:1]!= 8'hF0) data_out[8] <= 1'b1;
+			
+				data_out[7:0] <= scan_code[8:1];
 			end				
 		end					
 		
-		if (sel == 0 && previous_sel ==1) data_out[8] <= 1'b0;
+		if (sel == 1 && previous_sel ==0 && data_out[8]==1) begin
+		data_out[8] <= 1'b0;
+		key_released <= 0;
+		end
 		previous_sel <= sel;
-
+			
 end
 	
 	
