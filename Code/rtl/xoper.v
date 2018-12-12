@@ -31,7 +31,7 @@ module xoper(
 	 
 	 
 
-
+reg [1:0]n_enter = 2'b0;
 reg[10:0] operand1 = 11'b0;
 reg[10:0] operand2 = 11'b0;
 reg negative1;
@@ -53,14 +53,14 @@ always @(negedge(sel))
 	if (data_in == 11'b1010) negative1 <= 1'b0;
 	else if (data_in == 11'b1011) negative1 <= 1'b1;
 	end
-	4'b0001: operand1 <= data_in;
+	4'b0001: operand1 = data_in;
 	4'b0010: begin
 	temp = (operand1*11'b00000001010);
-	operand1 <= temp[10:0]+data_in; //tens	
+	operand1 = temp[10:0]+data_in; //tens	
 	end
 	4'b0011: begin
 		temp1 =(operand1*11'b00000001010);
-		operand1<= temp1[10:0]+data_in;
+		operand1= temp1[10:0]+data_in;
 		end
 	4'b0100:
 		begin 
@@ -77,16 +77,16 @@ always @(negedge(sel))
 		if (data_in == 11'b1010) negative2 <= 1'b0;
 		else if (data_in == 11'b1011) negative2 <= 1'b1;
 		end
-	4'b0110: operand2 <= data_in; 
+	4'b0110: operand2 = data_in; 
 	4'b0111:
 		begin
 		temp=(operand2*11'b00000001010);
-		operand2 <= temp[10:0]+data_in; 
+		operand2 = temp[10:0]+data_in; 
 		end	
 	4'b1000:
 		begin 
 		temp1=(operand2*11'b00000001010);
-		operand2 <= temp1[10:0]+data_in;
+		operand2 = temp1[10:0]+data_in;
 		end
 	 4'b1001:
 		begin 
@@ -103,15 +103,16 @@ always @(negedge(sel))
 	end
 	endcase
 	
-	if (counter == 9) begin
-	counter <= 0;
-	temp <= 0;
-	temp1 <=0;
-	operand1 <=0;
-	operand2 <=0;
+	if (counter == 9) 
+	begin
+	counter = 0;
+	temp =0;
+	temp1 =0;
+	operand1 =0;
+	operand2 =0;
 	end
 	
-	if (data_in!=11'b1110) counter <= counter+1;
+	if (data_in!=11'b1110) counter = counter+1;
 		
 	end // always @(negedge(sel))
 	
