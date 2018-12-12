@@ -6,7 +6,7 @@
 module xtop_tb;
    
    //parameters 
-   parameter clk_period = 10;
+   parameter clk_period = 1000;
 	parameter ps2_clk_period = 1000000;
 
    //
@@ -130,7 +130,10 @@ module xtop_tb;
 	  
 	always @(posedge(ps2_clk))
 		begin
-		ps2_data = ps2_input_data[ps2_byte_index][ps2_bit_index];
+		if (ps2_byte_index < 10)
+			ps2_data = ps2_input_data[ps2_byte_index][ps2_bit_index];
+		else ps2_data = 1;
+		
 		if (ps2_bit_index == 10) begin
 			ps2_bit_index <= 0;
 			ps2_byte_index <= ps2_byte_index + 1;
