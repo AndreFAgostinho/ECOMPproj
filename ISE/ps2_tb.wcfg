@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="E:/EComp/Calculadora/ISE/xtop_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="xtop_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="26" />
+   <wvobject fp_name="/xtop_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/ps2_data" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ps2_data</obj_property>
+      <obj_property name="ObjectShortName">ps2_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/ps2_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ps2_clk</obj_property>
+      <obj_property name="ObjectShortName">ps2_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/ps2_input_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ps2_input_data[9:0,10:0]</obj_property>
+      <obj_property name="ObjectShortName">ps2_input_data[9:0,10:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <wvobject fp_name="/xtop_tb/ps2_input_data[9]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[9,10:0]</obj_property>
+         <obj_property name="ObjectShortName">ps2_input_data[9,10:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/xtop_tb/ps2_input_data[8]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[8,10:0]</obj_property>
+         <obj_property name="ObjectShortName">ps2_input_data[8,10:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/xtop_tb/ps2_input_data[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7,10:0]</obj_property>
+         <obj_property name="ObjectShortName">ps2_input_data[7,10:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/xtop_tb/ps2_input_data[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6,10:0]</obj_property>
+         <obj_property name="ObjectShortName">ps2_input_data[6,10:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/xtop_tb/ps2_input_data[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5,10:0]</obj_property>
+         <obj_property name="ObjectShortName">ps2_input_data[5,10:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/xtop_tb/ps2_input_data[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4,10:0]</obj_property>
+         <obj_property name="ObjectShortName">ps2_input_data[4,10:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/xtop_tb/ps2_input_data[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3,10:0]</obj_property>
+         <obj_property name="ObjectShortName">ps2_input_data[3,10:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/xtop_tb/ps2_input_data[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2,10:0]</obj_property>
+         <obj_property name="ObjectShortName">ps2_input_data[2,10:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/xtop_tb/ps2_input_data[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1,10:0]</obj_property>
+         <obj_property name="ObjectShortName">ps2_input_data[1,10:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/xtop_tb/ps2_input_data[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0,10:0]</obj_property>
+         <obj_property name="ObjectShortName">ps2_input_data[0,10:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/ps2_bit_index" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ps2_bit_index[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ps2_bit_index[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/ps2_byte_index" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ps2_byte_index[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ps2_byte_index[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider54" type="divider">
+      <obj_property name="label">ps2</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/ps2/sel" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sel</obj_property>
+      <obj_property name="ObjectShortName">sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/ps2/data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_out[8:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[8:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/ps2/downcounter" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">downcounter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">downcounter[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider52" type="divider">
+      <obj_property name="label">oper</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/sel" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sel</obj_property>
+      <obj_property name="ObjectShortName">sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_in[10:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[10:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/operand1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">operand1[10:0]</obj_property>
+      <obj_property name="ObjectShortName">operand1[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/operand2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">operand2[10:0]</obj_property>
+      <obj_property name="ObjectShortName">operand2[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/negative1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">negative1</obj_property>
+      <obj_property name="ObjectShortName">negative1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/negative2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">negative2</obj_property>
+      <obj_property name="ObjectShortName">negative2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/counter" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/operator" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">operator[1:0]</obj_property>
+      <obj_property name="ObjectShortName">operator[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/n_enter" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">n_enter[1:0]</obj_property>
+      <obj_property name="ObjectShortName">n_enter[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_out[10:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[10:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider64" type="divider">
+      <obj_property name="label">disp</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/disp/sel" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sel</obj_property>
+      <obj_property name="ObjectShortName">sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/disp/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/disp/data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_in[10:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[10:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/disp/data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_out[11:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[11:0]</obj_property>
+   </wvobject>
+</wave_config>
