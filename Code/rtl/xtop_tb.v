@@ -124,9 +124,9 @@ module xtop_tb;
 		
 
 		// <-
-		ps2_input_data[30][8:1] = 8'h5A;
-		ps2_input_data[31][8:1] = 8'hF0;
-		ps2_input_data[32][8:1] = 8'h5A;		
+		ps2_input_data[27][8:1] = 8'h5A;
+		ps2_input_data[28][8:1] = 8'hF0;
+		ps2_input_data[29][8:1] = 8'h5A;		
 		
 
      // assert reset for 1 clock cycle
