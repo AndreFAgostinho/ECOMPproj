@@ -40,6 +40,8 @@ reg[1:0] operator = 2'b0;
 reg [31:0] temp = 32'b0;
 reg [31:0] temp1 = 32'b0;
 
+reg mult_flag = 0;
+reg div_flag = 0;
 
 
 always @(posedge(clk)) begin
@@ -53,6 +55,8 @@ always @(posedge(clk)) begin
 		operator <= 2'b0;
 		temp = 32'b0;
 		temp1 = 32'b0;
+		mult_flag = 0;
+		div_flag = 0;
 	end // if
 
 	else if (sel) begin
@@ -69,54 +73,56 @@ always @(posedge(clk)) begin
 			1: operand1 = data_in;
 			
 			2: begin
-				temp = (operand1*11'b00000001010);
-				operand1 = temp[10:0]+data_in; //tens	
+				temp = (operand1 * 10);
+				operand1 = temp[10:0] + data_in; //tens	
 			end
 
 			3: begin
-				temp1 =(operand1*11'b00000001010);
-				operand1= temp1[10:0]+data_in;
+				temp1 = (operand1 * 10);
+				operand1 = temp1[10:0] + data_in;
 			end
 			
 			4: begin 
 				case (data_in)
-					11'b1010 : operator <= 2'b00; //add
-					11'b1011: operator <= 2'b01; //sub
-					11'b1100: operator <= 2'b10; //mult
-					11'b1101: operator <= 2'b11; //div
+					10: operator <= 0; //add
+					11: operator <= 1; //sub
+					12: operator <= 2; //mult
+					13: operator <= 3; //div
 				endcase
 			end
 			
 			5: begin
-				if (data_in == 11'b1010) negative2 <= 1'b0;
-				else if (data_in == 11'b1011) negative2 <= 1'b1;
+				if (data_in == 10) negative2 <= 1'b0;
+				else if (data_in == 11) negative2 <= 1'b1;
 			end
 			
 			6: operand2 = data_in; 
 			
 			7: begin
-				temp=(operand2*11'b00000001010);
-				operand2 = temp[10:0]+data_in; 
+				temp=(operand2 * 10);
+				operand2 = temp[10:0] + data_in; 
 			end	
 			
 			8: begin 
-				temp1=(operand2*11'b00000001010);
-				operand2 = temp1[10:0]+data_in;
+				temp1=(operand2 * 10);
+				operand2 = temp1[10:0] + data_in;
 			end
 			
 			9: begin 
-				if (negative2 == 1'b1) operand2 =-operand2;
-				if (negative1 == 1'b1) operand1 =-operand1;
+				if (negative2 == 1'b1) operand2 = -operand2;
+				if (negative1 == 1'b1) operand1 = -operand1;
 				case (operator)
-					2'b00 : data_out <= operand1 + operand2;
-					2'b01 : data_out <= operand1 - operand2;	
+					0 : data_out <= operand1 + operand2;
+					1 : data_out <= operand1 - operand2;
+					2 : mult_flag <= 1;
+					3 : div_flag <= 1;
 						//mult here
 						//div here
 				endcase // operator
 			end // 9
 		endcase // counter
 	
-	if (data_in!=11'b1110) counter = counter+1;
+	if (data_in != 14) counter = counter+1;
 	
 	end // else if (sel)
 
