@@ -31,21 +31,32 @@ module xoper(
 	 
 	 
 
-reg [1:0]n_enter = 2'b0;
 reg[10:0] operand1 = 11'b0;
 reg[10:0] operand2 = 11'b0;
 reg negative1;
 reg negative2; 
 reg [3:0] counter = 4'b0;
 reg[1:0] operator = 2'b0;
-reg [31:0] temp ;
-
+reg [31:0] temp =32'b0;
 reg [31:0] temp1 =32'b0;
 
 
 
-always @(negedge(sel))
+always @(posedge(clk))
 	begin
+	if (rst) begin //reset if you want to do a new operation
+	operand1 =11'b0;
+	operand2 = 11'b0;
+	negative1 <= 1'b0;
+	negative2 <= 1'b0;
+	counter = 4'b0;
+	operator <=2'b0;
+	temp = 32'b0;
+	temp1 =32'b0;
+	end
+	
+	
+	else if (sel) begin
 	if (data_in == 11'b1110 && counter <4'b0100) counter = 4'b0100;
 	else if (data_in == 11'b1110 && counter >11'b0110 && counter < 11'b1001) counter = 4'b1001;
 	case(counter)
@@ -99,22 +110,16 @@ always @(negedge(sel))
 					//mult here
 					//div here
 			endcase
+			end
 		end
-	end
 	endcase
 	
-	if (counter == 9) 
-	begin
-	counter = 0;
-	temp =0;
-	temp1 =0;
-	operand1 =0;
-	operand2 =0;
-	end
-	
 	if (data_in!=11'b1110) counter = counter+1;
-		
-	end // always @(negedge(sel))
+	
+	end
+
+	
+	end
 	
 	
 endmodule

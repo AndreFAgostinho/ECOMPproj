@@ -7,7 +7,7 @@ module xtop_tb;
    
    //parameters 
    parameter clk_period = 20;
-	parameter ps2_clk_period = 100000;
+	parameter ps2_clk_period = 50000;
 
    //
    // Interface signals
@@ -97,10 +97,10 @@ module xtop_tb;
 		ps2_input_data[10][8:1] = 8'hF0;
 		ps2_input_data[11][8:1] = 8'h5A;
 		
-		// +
-		ps2_input_data[12][8:1] = 8'h79;
+		// -
+		ps2_input_data[12][8:1] = 8'h7B;
 		ps2_input_data[13][8:1] = 8'hF0;
-		ps2_input_data[14][8:1] = 8'h79;
+		ps2_input_data[14][8:1] = 8'h7B;
 		
 		// <-
 		ps2_input_data[15][8:1] = 8'h5A;
@@ -122,10 +122,11 @@ module xtop_tb;
 		ps2_input_data[25][8:1] = 8'hF0;
 		ps2_input_data[26][8:1] = 8'h7D;
 		
+
 		// <-
-		ps2_input_data[27][8:1] = 8'h5A;
-		ps2_input_data[28][8:1] = 8'hF0;
-		ps2_input_data[29][8:1] = 8'h5A;		
+		ps2_input_data[30][8:1] = 8'h5A;
+		ps2_input_data[31][8:1] = 8'hF0;
+		ps2_input_data[32][8:1] = 8'h5A;		
 		
 
      // assert reset for 1 clock cycle

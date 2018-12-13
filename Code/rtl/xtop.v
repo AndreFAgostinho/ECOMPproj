@@ -174,7 +174,7 @@ module xtop (
 		oper_sel =1'b1;
 	else if (`OP_BASE == data_addr) begin
 		data_to_rd=oper_data_to_rd;
-		oper_sel = 1'b1;
+	
 	end
 
 			
