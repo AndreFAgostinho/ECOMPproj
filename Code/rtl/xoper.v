@@ -40,8 +40,15 @@ reg[1:0] operator = 2'b0;
 reg [31:0] temp = 32'b0;
 reg [31:0] temp1 = 32'b0;
 
-reg mult_flag = 0;
-reg div_flag = 0;
+reg [11:0] x_mult = 0;
+reg [11:0] y_mult = 0;
+wire [23:0] p_mult;
+
+booth_mult mult (
+	      .x(x_mult),
+         .y(y_mult),
+			.p(p_mult)
+	      );
 
 
 always @(posedge(clk)) begin
@@ -55,8 +62,6 @@ always @(posedge(clk)) begin
 		operator <= 2'b0;
 		temp = 32'b0;
 		temp1 = 32'b0;
-		mult_flag = 0;
-		div_flag = 0;
 	end // if
 
 	else if (sel) begin
@@ -114,8 +119,11 @@ always @(posedge(clk)) begin
 				case (operator)
 					0 : data_out <= operand1 + operand2;
 					1 : data_out <= operand1 - operand2;
-					2 : mult_flag <= 1;
-					3 : div_flag <= 1;
+					2 : begin
+						x_mult <= operand1;
+						y_mult <= operand2;
+						end
+					//3 : div
 						//mult here
 						//div here
 				endcase // operator
@@ -128,6 +136,8 @@ always @(posedge(clk)) begin
 
 end // always @(posedge(clk))
 
+always @(p_mult)
+	data_out <= p_mult[10:0];
 
 
 	

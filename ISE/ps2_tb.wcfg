@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="26" />
+   <WVObjectSize size="33" />
    <wvobject fp_name="/xtop_tb/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -76,12 +76,12 @@
    <wvobject fp_name="/xtop_tb/uut/oper/operand1" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">operand1[10:0]</obj_property>
       <obj_property name="ObjectShortName">operand1[10:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/xtop_tb/uut/oper/operand2" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">operand2[10:0]</obj_property>
       <obj_property name="ObjectShortName">operand2[10:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/xtop_tb/uut/oper/negative1" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">negative1</obj_property>
@@ -100,14 +100,22 @@
       <obj_property name="ElementShortName">operator[1:0]</obj_property>
       <obj_property name="ObjectShortName">operator[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/xtop_tb/uut/oper/n_enter" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">n_enter[1:0]</obj_property>
-      <obj_property name="ObjectShortName">n_enter[1:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/xtop_tb/uut/oper/data_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">data_out[10:0]</obj_property>
       <obj_property name="ObjectShortName">data_out[10:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/x_mult" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">x_mult[11:0]</obj_property>
+      <obj_property name="ObjectShortName">x_mult[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/y_mult" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">y_mult[11:0]</obj_property>
+      <obj_property name="ObjectShortName">y_mult[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/p_mult" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">p_mult[23:0]</obj_property>
+      <obj_property name="ObjectShortName">p_mult[23:0]</obj_property>
    </wvobject>
    <wvobject fp_name="divider64" type="divider">
       <obj_property name="label">disp</obj_property>
@@ -131,5 +139,31 @@
    <wvobject fp_name="/xtop_tb/uut/disp/data_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">data_out[11:0]</obj_property>
       <obj_property name="ObjectShortName">data_out[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider59" type="divider">
+      <obj_property name="label">mult</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/mult/x" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">x[11:0]</obj_property>
+      <obj_property name="ObjectShortName">x[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/mult/y" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">y[11:0]</obj_property>
+      <obj_property name="ObjectShortName">y[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/mult/p" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">p[23:0]</obj_property>
+      <obj_property name="ObjectShortName">p[23:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/xtop_tb/uut/oper/mult/prod" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">prod[23:0]</obj_property>
+      <obj_property name="ObjectShortName">prod[23:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>

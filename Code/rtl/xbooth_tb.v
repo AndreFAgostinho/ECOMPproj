@@ -27,9 +27,6 @@ wire [23:0] p;
 booth_mult uut (
 	      .x(x),
          .y(y),
-	      
-   	     // calculator interface
-
 			.p(p)
 	      );
 
