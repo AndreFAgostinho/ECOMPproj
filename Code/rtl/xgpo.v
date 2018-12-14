@@ -10,10 +10,11 @@ module xgpo (
 );
 
 always @(posedge clk)
-
-    if (rst)
-	data_out <= 8'b0;
-    else if (sel)
-	data_out <= data_in;
+begin
+	if (rst)
+		data_out <= 8'b0;
+	else if (sel)
+		data_out <= data_in;
+end
 
 endmodule
