@@ -18,7 +18,11 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module booths_multiplier_tb;
+module booth_tb;
+
+reg [11:0] x;
+reg [11:0] y;
+wire [23:0] p;
 
 booth_mult uut (
 	      .x(x),
@@ -29,9 +33,7 @@ booth_mult uut (
 			.p(p)
 	      );
 
-reg [11:0] x;
-reg [11:0] y;
-wire [23:0] p;
+
 
 parameter clk_period = 1000;
 
@@ -50,6 +52,11 @@ y = -12;
 
 x = 12;
 y = 56;
+
+#clk_period;
+
+x = -33;
+y = -30;
 
 end
 

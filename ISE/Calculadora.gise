@@ -43,13 +43,13 @@
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="booth_mult_envsettings.html"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="booth_mult_summary.html"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="booth_mult_xst.xrpt"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="booths_multiplier_tb_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="booth_tb_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="booth_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="booth_tb_isim_beh.wdb"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="booths_multiplier_tb_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="booths_multiplier_tb_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="netgen"/>
     <file xil_pn:fileType="FILE_NETGEN_REPORT" xil_pn:name="netgen/synthesis/xtop_synthesis.nlf"/>
     <file xil_pn:fileType="FILE_VERILOG" xil_pn:name="netgen/synthesis/xtop_synthesis.v"/>
@@ -150,11 +150,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1544789229" xil_pn:in_ck="3030779849622487808" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1544789229">
+    <transform xil_pn:end_ts="1544789806" xil_pn:in_ck="3609192800170022142" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1544789806">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="../Code/rtl/Booths_multiplier.v"/>
-      <outfile xil_pn:name="../Code/rtl/booths_multiplier_tb.v"/>
+      <outfile xil_pn:name="../Code/rtl/xbooth.v"/>
+      <outfile xil_pn:name="../Code/rtl/xbooth_tb.v"/>
       <outfile xil_pn:name="../Code/rtl/xcprint.v"/>
       <outfile xil_pn:name="../Code/rtl/xctrl.v"/>
       <outfile xil_pn:name="../Code/rtl/xctrldefs.vh"/>
@@ -174,11 +174,11 @@
       <outfile xil_pn:name="../Code/rtl/xtop.v"/>
       <outfile xil_pn:name="../Code/rtl/xtop_tb.v"/>
     </transform>
-    <transform xil_pn:end_ts="1544787178" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="2137093190188729281" xil_pn:start_ts="1544787178">
+    <transform xil_pn:end_ts="1544789754" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-8238899025407398456" xil_pn:start_ts="1544789754">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1544787178" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-4915689178833698237" xil_pn:start_ts="1544787178">
+    <transform xil_pn:end_ts="1544789754" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2847103184190654454" xil_pn:start_ts="1544789754">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -186,11 +186,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1544789230" xil_pn:in_ck="3030779849622487808" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1544789229">
+    <transform xil_pn:end_ts="1544789806" xil_pn:in_ck="3609192800170022142" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1544789806">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="../Code/rtl/Booths_multiplier.v"/>
-      <outfile xil_pn:name="../Code/rtl/booths_multiplier_tb.v"/>
+      <outfile xil_pn:name="../Code/rtl/xbooth.v"/>
+      <outfile xil_pn:name="../Code/rtl/xbooth_tb.v"/>
       <outfile xil_pn:name="../Code/rtl/xcprint.v"/>
       <outfile xil_pn:name="../Code/rtl/xctrl.v"/>
       <outfile xil_pn:name="../Code/rtl/xctrldefs.vh"/>
@@ -210,22 +210,20 @@
       <outfile xil_pn:name="../Code/rtl/xtop.v"/>
       <outfile xil_pn:name="../Code/rtl/xtop_tb.v"/>
     </transform>
-    <transform xil_pn:end_ts="1544789233" xil_pn:in_ck="3030779849622487808" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="3121854634092003171" xil_pn:start_ts="1544789230">
+    <transform xil_pn:end_ts="1544789808" xil_pn:in_ck="3609192800170022142" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-4354022197166360783" xil_pn:start_ts="1544789806">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="booths_multiplier_tb_beh.prj"/>
-      <outfile xil_pn:name="booths_multiplier_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="booth_tb_beh.prj"/>
+      <outfile xil_pn:name="booth_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1544789233" xil_pn:in_ck="-3971028724899028807" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="1596456736264451622" xil_pn:start_ts="1544789233">
+    <transform xil_pn:end_ts="1544789809" xil_pn:in_ck="-8561900572807690919" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-2096711246397193260" xil_pn:start_ts="1544789808">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="booths_multiplier_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="booth_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
     </transform>
     <transform xil_pn:end_ts="1544786543" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1544786543">
       <status xil_pn:value="SuccessfullyRun"/>
