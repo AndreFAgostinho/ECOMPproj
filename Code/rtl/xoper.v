@@ -44,6 +44,8 @@ reg [11:0] x_mult = 0;
 reg [11:0] y_mult = 0;
 wire [23:0] p_mult;
 
+reg mult_flag = 0;
+
 booth_mult mult (
 	      .x(x_mult),
          .y(y_mult),
@@ -122,6 +124,7 @@ always @(posedge(clk)) begin
 					2 : begin
 						x_mult <= operand1;
 						y_mult <= operand2;
+						mult_flag <= 1;
 						end
 					//3 : div
 						//mult here
@@ -133,13 +136,11 @@ always @(posedge(clk)) begin
 	if (data_in != 14) counter = counter+1;
 	
 	end // else if (sel)
+	else if (mult_flag) begin
+		data_out <= p_mult[10:0];
+		mult_flag <= 0;
+	end
 
 end // always @(posedge(clk))
-
-always @(p_mult)
-	data_out <= p_mult[10:0];
-
-
-	
 
 endmodule

@@ -3,9 +3,9 @@
 `timescale 1ns/1ps
 
 module booth_mult (
-   output reg[width+width-1:0] p, // product
-	input [width-1:0] x, // operand 1
-	input [width-1:0] y //operand 2
+   output reg[`width+`width-1:0] p, // product
+	input [`width-1:0] x, // operand 1
+	input [`width-1:0] y //operand 2
 );
 
 parameter width = `width;
@@ -44,7 +44,7 @@ begin
 
 	for(kk=1;kk<N;kk=kk+1)
 		prod = prod + spp[kk];
-	p = prod;
+	p <= prod;
 end
 
 endmodule
