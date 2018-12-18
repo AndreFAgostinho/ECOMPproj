@@ -55,10 +55,10 @@ module xtop (
 `endif
 
 	reg					ps2_sel;
-    reg                 ps2_rst;
+
 	wire [8:0]			ps2_data_to_rd;
   	reg					disp_sel;
-    reg                 disp_rst;
+   
 	reg 					oper_sel;
 	wire [10:0]			oper_data_to_rd;
 
@@ -119,9 +119,9 @@ module xtop (
       prog_sel = 1'b0;
       regf_sel = 1'b0;
 		ps2_sel = 1'b0;
-      ps2_rst = 1'b0;
+     
 		disp_sel =1'b0;
-      disp_rst = 1'b0;
+ 
 		oper_sel =1'b0;
 	
 		

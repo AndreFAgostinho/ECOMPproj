@@ -10,8 +10,8 @@ module xps2 (
 			output reg[8:0]	data_out // Keypress data output and valid bit
 	      );
 
-reg [10:0] scan_code = 11'b0;
-reg new_scan_code = 1'b0;
+reg [9:0] scan_code = 10'b0;
+
 reg [3:0] count = 4'b0;
 reg previous_state;			
 reg trigger;
@@ -19,15 +19,13 @@ reg trig_arr;
 reg [7:0] downcounter= 8'b0;	
 reg previous_sel;
 reg  key_released;
-reg previous_key;
-	
-	
+
 always @(posedge clk) begin	
 				
 	
 		if (rst) begin
 		data_out <= 9'b0;
-		scan_code <= 11'b0;
+		scan_code = 10'b0;
 		count <= 4'b0;
 		trig_arr <= 1'b0;
 		trigger <= 1'b0;
@@ -48,7 +46,7 @@ always @(posedge clk) begin
 			if (ps2_clk != previous_state) begin			
 				if (!ps2_clk) begin				
 					count <= count + 1;
-					scan_code[10:0] <= {ps2_data, scan_code[10:1]};	
+					scan_code[9:0] = {ps2_data, scan_code[9:1]};	
 				
 				end
 			end
@@ -68,10 +66,10 @@ always @(posedge clk) begin
 		
 		if (trigger) begin					
 			if (trig_arr) begin
-				if (scan_code [8:1] == 8'hF0) key_released <= 1'b1;
-				if (key_released == 1 && scan_code[8:1]!= 8'hF0) data_out[8] <= 1'b1;
+				if (scan_code [7:0] == 8'hF0) key_released <= 1'b1;
+				if (key_released == 1 && scan_code[7:0]!= 8'hF0) data_out[8] <= 1'b1;
 			
-				data_out[7:0] <= scan_code[8:1];
+				data_out[7:0] <= scan_code[7:0];
 			end				
 		end					
 		
