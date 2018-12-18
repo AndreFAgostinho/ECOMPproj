@@ -20,6 +20,6 @@ module xprog_rom(
    // rom read operation
    always @ (posedge clk)
       if (en)
-	instruction <= mem[pc];
+			instruction <= mem[pc];
   
 endmodule
