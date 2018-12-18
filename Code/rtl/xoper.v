@@ -32,28 +32,17 @@ module xoper(
 	 
 	 
 
-reg[10:0] operand1 = 11'b0;
-reg[10:0] operand2 = 11'b0;
+reg [10:0] operand1 = 11'b0;
+reg [10:0] operand2 = 11'b0;
 reg negative1;
 reg negative2; 
 reg [3:0] counter = 4'b0;
 reg[1:0] operator = 2'b0;
-reg [31:0] temp = 32'b0;
-reg [31:0] temp1 = 32'b0;
+reg [10:0] temp = 11'b0;
+reg [10:0] temp1 = 11'b0;
+reg [10:0] temp2 = 11'b0;
+reg [10:0] temp3 = 11'b0;
 
-reg [11:0] x_mult = 0;
-reg [11:0] y_mult = 0;
-wire [23:0] p_mult;
-
-reg mult_flag = 0;
-
-
-
-booth_mult mult (
-	      .x(x_mult),
-         .y(y_mult),
-			.p(p_mult)
-	      );
 
 
 always @(posedge(clk)) begin
@@ -65,8 +54,10 @@ always @(posedge(clk)) begin
 			negative2 <= 1'b0;
 			counter = 4'b0;
 			operator <= 2'b0;
-			temp = 32'b0;
-			temp1 = 32'b0;
+			temp= 11'b0;
+			temp1 = 11'b0;
+			temp2 = 11'b0;
+			temp3 = 11'b0;
 			led = 0;
 		end // if
 
@@ -85,12 +76,12 @@ always @(posedge(clk)) begin
 				
 				2: begin
 					temp = (operand1 * 10);
-					operand1 = temp[10:0] + data_in; //tens	
+					operand1 = temp + data_in; //tens	
 				end
 
 				3: begin
 					temp1 = (operand1 * 10);
-					operand1 = temp1[10:0] + data_in;
+					operand1 = temp1 + data_in;
 				end
 				
 				4: begin 
@@ -109,13 +100,13 @@ always @(posedge(clk)) begin
 				6: operand2 = data_in; 
 				
 				7: begin
-					temp=(operand2 * 10);
-					operand2 = temp[10:0] + data_in; 
+					temp2=(operand2 * 10);
+					operand2 = temp2+ data_in; 
 				end	
 				
 				8: begin 
-					temp1=(operand2 * 10);
-					operand2 = temp1[10:0] + data_in;
+					temp3=(operand2 * 10);
+					operand2 = temp3 + data_in;
 				end
 				
 				9: begin 
@@ -123,7 +114,7 @@ always @(posedge(clk)) begin
 					if (negative1 == 1'b1) operand1 = -operand1;
 					case (operator)
 						0 : begin 
-						if ((operand1+operand2) > 999 || (operand1+operand2) <-999) begin
+						if (($signed(operand1+operand2) > $signed(999)) || ($signed(operand1+operand2) < $signed(-999))) begin
 								data_out <= 0;
 								led=8'hFF;
 						end
@@ -131,7 +122,7 @@ always @(posedge(clk)) begin
 								data_out <= operand1 + operand2;
 						end
 						1 : begin 
-						if ((operand1-operand2) > 999 || (operand1-operand2) < -999) begin
+						if (($signed(operand1-operand2) > $signed(999)) || ($signed(operand1-operand2) < $signed(-999)) )  begin
 								data_out <= 0;
 								led=8'hFF;
 							end
@@ -140,9 +131,13 @@ always @(posedge(clk)) begin
 						end
 						
 						2 : begin
-							x_mult <= operand1;
-							y_mult <= operand2;
-							mult_flag <= 1;
+
+						if (($signed(operand1*operand2) > $signed(999)) || ($signed(operand1*operand2) < $signed(-999)) )  begin
+								data_out <= 0;
+								led=8'hFF;
+							end
+						else
+								data_out <= operand1*operand2;
 							end
 					
 					endcase // operator
@@ -153,15 +148,6 @@ always @(posedge(clk)) begin
 	
 		end // else if (sel)
 	
-	else if (mult_flag) begin
-			if (p_mult >999 || p_mult <-999) begin
-					data_out <= 0;
-					led=8'hFF;
-				end
-			else 	data_out <= p_mult[10:0];
-			mult_flag <= 0;
-			
-		end
 
 	
 		
