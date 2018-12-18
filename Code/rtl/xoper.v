@@ -24,7 +24,7 @@ module xoper(
 			input			sel, // Module selection input
 			input			rst, // Module reset input
 			input [10:0] data_in, // scan code converted in decimal from 0 to 14
-			output reg [10:0] data_out,//result to be displayed
+			output reg [10:0] data_out = 0,//result to be displayed
 			output reg	[7:0] led = 0
 			
 
@@ -39,10 +39,28 @@ reg negative2;
 reg [3:0] counter = 4'b0;
 reg[1:0] operator = 2'b0;
 reg [10:0] temp = 11'b0;
-reg [10:0] temp1 = 11'b0;
-reg [10:0] temp2 = 11'b0;
-reg [10:0] temp3 = 11'b0;
 
+
+
+
+// multiplier signals
+reg [11:0] mult_x = 0;
+reg [11:0] mult_y = 0;
+wire [23:0] mult_prod;
+
+wire mult_ready;
+reg mult_start = 0;
+reg multiply =0;
+
+
+booth_mult mult(
+	.prod(mult_prod),
+	.ready(mult_ready),
+	.multiplicand(mult_x),
+	.multiplier(mult_y),
+	.start(mult_start),
+	.clk(clk)
+	);
 
 
 always @(posedge(clk)) begin
@@ -55,9 +73,7 @@ always @(posedge(clk)) begin
 			counter = 4'b0;
 			operator <= 2'b0;
 			temp= 11'b0;
-			temp1 = 11'b0;
-			temp2 = 11'b0;
-			temp3 = 11'b0;
+			
 			led = 0;
 		end // if
 
@@ -80,8 +96,8 @@ always @(posedge(clk)) begin
 				end
 
 				3: begin
-					temp1 = (operand1 * 10);
-					operand1 = temp1 + data_in;
+					temp = (operand1 * 10);
+					operand1 = temp + data_in;
 				end
 				
 				4: begin 
@@ -100,13 +116,13 @@ always @(posedge(clk)) begin
 				6: operand2 = data_in; 
 				
 				7: begin
-					temp2=(operand2 * 10);
-					operand2 = temp2+ data_in; 
+					temp=(operand2 * 10);
+					operand2 = temp+ data_in; 
 				end	
 				
 				8: begin 
-					temp3=(operand2 * 10);
-					operand2 = temp3 + data_in;
+					temp=(operand2 * 10);
+					operand2 = temp + data_in;
 				end
 				
 				9: begin 
@@ -132,12 +148,11 @@ always @(posedge(clk)) begin
 						
 						2 : begin
 
-						if (($signed(operand1*operand2) > $signed(999)) || ($signed(operand1*operand2) < $signed(-999)) )  begin
-								data_out <= 0;
-								led=8'hFF;
-							end
-						else
-								data_out <= operand1*operand2;
+
+							mult_x <= {operand1[10], operand1}; //sign extension
+							mult_y <= {operand2[10], operand2}; //sign extension
+							mult_start <= 1;
+							multiply = 1;
 							end
 					
 					endcase // operator
@@ -148,7 +163,18 @@ always @(posedge(clk)) begin
 	
 		end // else if (sel)
 	
-
+	else if (mult_start)
+		mult_start <= 0;
+	else if (mult_ready && multiply)
+		begin
+		multiply =0;
+			if (($signed(mult_prod) > $signed(999)) || ($signed(mult_prod) < $signed(-999)) ) begin
+					data_out <= 0;
+					led=8'hFF;
+				end
+			else
+				data_out <= mult_prod[10:0];
+		end
 	
 		
 end // always @(posedge(clk))

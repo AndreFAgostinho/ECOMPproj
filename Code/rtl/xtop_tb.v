@@ -48,10 +48,7 @@ module xtop_tb;
          
           .ps2_data(ps2_data),
           .ps2_clk(ps2_clk),
-          .push_AC(push_AC),
-          .push_C(push_C),
-          .disp_ctrl(disp_ctrl),
-			 .gpo_out(gpo_out)
+          .disp_ctrl(disp_ctrl)
     
 	      );
    
@@ -87,10 +84,10 @@ module xtop_tb;
 		ps2_input_data[4][8:1] = 8'hF0;
 		ps2_input_data[5][8:1] = 8'h7A;
 		
-		// 4
-		ps2_input_data[6][8:1] = 8'h6B;
+		// 1
+		ps2_input_data[6][8:1] = 8'h69;
 		ps2_input_data[7][8:1] = 8'hF0;
-		ps2_input_data[8][8:1] = 8'h6B;
+		ps2_input_data[8][8:1] = 8'h69;
 		
 		
 		// 1
@@ -113,10 +110,10 @@ module xtop_tb;
 		ps2_input_data[19][8:1] = 8'hF0;
 		ps2_input_data[20][8:1] = 8'h5A;
 		
-		// -
-		ps2_input_data[21][8:1] = 8'h7B;
+		// +
+		ps2_input_data[21][8:1] = 8'h79;
 		ps2_input_data[22][8:1] = 8'hF0;
-		ps2_input_data[23][8:1] = 8'h7B;
+		ps2_input_data[23][8:1] = 8'h79;
 		
 		// 3
 		ps2_input_data[24][8:1] = 8'h7A;

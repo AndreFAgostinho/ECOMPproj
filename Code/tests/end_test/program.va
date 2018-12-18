@@ -182,6 +182,19 @@ end_handles	nop
 print	rdw R15
 	wrw OPER_BASE
     nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
 	rdw OP_BASE
 	wrw DISP_BASE
 
