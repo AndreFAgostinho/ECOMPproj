@@ -2,7 +2,7 @@
 # Basic Boot R0OM
 #
     
-    ldi 0
-    beqi PROG_RAM
+    ldi 0xFFFFFFF
+    bneqi PROG_RAM
     nop
     nop
