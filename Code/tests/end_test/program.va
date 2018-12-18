@@ -1,6 +1,6 @@
 # START
 
-start	nop
+start	ldi 0xFFFFFFF
 	ldi 0
 	wrw R14
 	wrw R13
@@ -184,21 +184,9 @@ print	rdw R15
     nop
 	rdw OP_BASE
 	wrw DISP_BASE
-## Delay
-	ldi 2500000 # 1 ms delay (2500k * 2 cycles / 50000 kHz = 100 ms)
-delay_1	bneqi delay_1
-	nop
-	nop
-## end delay
-	ldi 0
-	beqi start
-	nop
 
-# loop to start
-#ldi 0
-#beqi start
-#nop
-#nop
+reset   ldi 0
+    beqi reset # wait for hardware reset
 
 # (never) finish program by jumping back to boot ROM
 finish	nop
