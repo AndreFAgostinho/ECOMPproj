@@ -24,7 +24,7 @@ module xoper(
 			input			sel, // Module selection input
 			input			rst, // Module reset input
 			input [10:0] data_in, // scan code converted in decimal from 0 to 14
-			output reg [10:0] data_out,//result to be displayed
+			output reg [10:0] data_out = 0,//result to be displayed
 			output reg	[7:0] led = 0
 			
 
@@ -44,13 +44,13 @@ reg [31:0] temp1 = 32'b0;
 // multiplier signals
 reg [11:0] mult_x = 0;
 reg [11:0] mult_y = 0;
-wire [23:0] mult_prod = 0;
+wire [23:0] mult_prod;
 
-reg mult_ready = 0;
+wire mult_ready;
 reg mult_start = 0;
 
 
-booth_mult(
+booth_mult mult(
 	.prod(mult_prod),
 	.ready(mult_ready),
 	.multiplicand(mult_x),
@@ -143,9 +143,9 @@ always @(posedge(clk)) begin
 						end
 						
 						2 : begin
-							mult_x <= operand1;
-							mult_y <= operand2;
-							mult_flag <= 1;
+							mult_x <= {operand1[10], operand1};
+							mult_y <= {operand2[10], operand2};
+							mult_start <= 1;
 							end
 					
 					endcase // operator
@@ -156,15 +156,10 @@ always @(posedge(clk)) begin
 	
 		end // else if (sel)
 	
-	else if (mult_flag) begin
-			if (p_mult >999 || p_mult <-999) begin
-					data_out <= 0;
-					led=8'hFF;
-				end
-			else 	data_out <= p_mult[10:0];
-			mult_flag <= 0;
-			
-		end
+	else if (mult_start)
+		mult_start <= 0;
+	else if (mult_ready)
+			data_out <= mult_prod[10:0];
 
 	
 		
