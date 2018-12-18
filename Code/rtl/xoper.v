@@ -41,20 +41,23 @@ reg[1:0] operator = 2'b0;
 reg [31:0] temp = 32'b0;
 reg [31:0] temp1 = 32'b0;
 
-reg [11:0] x_mult = 0;
-reg [11:0] y_mult = 0;
-wire [23:0] p_mult;
+// multiplier signals
+reg [11:0] mult_x = 0;
+reg [11:0] mult_y = 0;
+wire [23:0] mult_prod = 0;
 
-reg mult_flag = 0;
+reg mult_ready = 0;
+reg mult_start = 0;
 
 
-
-booth_mult mult (
-	      .x(x_mult),
-         .y(y_mult),
-			.p(p_mult)
-	      );
-
+booth_mult(
+	.prod(mult_prod),
+	.ready(mult_ready),
+	.multiplicand(mult_x),
+	.multiplier(mult_y),
+	.start(mult_start),
+	.clk(clk)
+	);
 
 always @(posedge(clk)) begin
 
@@ -140,8 +143,8 @@ always @(posedge(clk)) begin
 						end
 						
 						2 : begin
-							x_mult <= operand1;
-							y_mult <= operand2;
+							mult_x <= operand1;
+							mult_y <= operand2;
 							mult_flag <= 1;
 							end
 					
