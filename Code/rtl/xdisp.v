@@ -11,7 +11,7 @@ module xdisp (
 
 reg [1:0]AN = 2'b0;
 reg [3:0]CAT = 4'b0;
-reg [10:0]disp = 4'b0;
+reg [10:0]disp = 11'b0;
 reg sign = 1;
 reg [3:0] hundreds = 0;
 reg[3:0] tens = 0;
