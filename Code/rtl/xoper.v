@@ -38,7 +38,6 @@ reg negative1;
 reg negative2; 
 reg [3:0] counter = 4'b0;
 reg[1:0] operator = 2'b0;
-reg [10:0] temp = 11'b0;
 
 
 
@@ -72,7 +71,6 @@ always @(posedge(clk)) begin
 			negative2 <= 1'b0;
 			counter = 4'b0;
 			operator <= 2'b0;
-			temp= 11'b0;
 			
 			led = 0;
 		end // if
@@ -91,13 +89,11 @@ always @(posedge(clk)) begin
 				1: operand1 = data_in;
 				
 				2: begin
-					temp = (operand1 * 10);
-					operand1 = temp + data_in; //tens	
+					operand1 = (operand1 * 10) + data_in; //tens	
 				end
 
 				3: begin
-					temp = (operand1 * 10);
-					operand1 = temp + data_in;
+					operand1 = (operand1 * 10) + data_in;
 				end
 				
 				4: begin 
@@ -116,13 +112,11 @@ always @(posedge(clk)) begin
 				6: operand2 = data_in; 
 				
 				7: begin
-					temp=(operand2 * 10);
-					operand2 = temp+ data_in; 
+					operand2 = (operand2 * 10) + data_in; 
 				end	
 				
 				8: begin 
-					temp=(operand2 * 10);
-					operand2 = temp + data_in;
+					operand2 = (operand2 * 10) + data_in;
 				end
 				
 				9: begin 
