@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 /////////////////////////////////////////////////////////////////////////////
 // 12 x 12 bit booth radix-4 multiplier for signed integers
 // Pulse start to start multiplying (hold start high for less than 6 cycles)
@@ -7,20 +8,20 @@
 module booth_mult(prod,ready,multiplicand,multiplier,start,clk);
 
 	input [11:0]  multiplicand, multiplier;
-   input         start, clk;
-   output        prod;
-   output        ready;
+    input         start, clk;
+    output [23:0] prod;
+    output        ready;
 
-   reg [24:0]    product = 0;
-   wire [23:0]   prod = product[23:0];
+    reg [24:0]    product = 0;
+    
+    assign prod = product[23:0];
 
-
-   reg [4:0]     bit_index = 0; 
-   wire          ready = !bit_index;
-   reg           lostbit = 0;
+    reg [4:0]     bit_index = 0; 
+    wire          ready = !bit_index;
+    reg           lostbit = 0;
    
 
-   wire [12:0]   multsx = {multiplicand[11],multiplicand}; // signal extended multiplicand
+    wire [12:0]   multsx = {multiplicand[11],multiplicand}; // signal extended multiplicand
 
 	always @( posedge clk )
 
