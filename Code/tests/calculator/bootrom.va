@@ -1,0 +1,9 @@
+#	
+# Basic Boot R0OM
+#
+    
+    ldi 0xFFFFFFF
+    shft 0
+    bneqi PROG_RAM
+    nop
+    nop

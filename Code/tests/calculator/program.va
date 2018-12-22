@@ -1,0 +1,213 @@
+# START
+
+start	ldi 0xFFFFFFF
+	ldi 0
+	wrw R14
+	wrw R13
+
+acquire_key	rdw PS2_BASE
+	wrw R1 
+	shft 1 #1
+	shft 1 #2
+	shft 1 #3
+	shft 1 #4
+	shft 1 #5
+	shft 1 #6
+	shft 1 #7
+	shft 1 #8
+	beqi acquire_key 
+	nop
+	
+	ldi 0x0FF 
+	wrw R2 # R2 <- mask
+	rdw R1 # RA <- R1
+	and R2 # R1 AND mask
+	wrw R1 # R1 <- key code. R1 now only contains the key code
+	ldi 0
+	beqi decoder
+	nop
+
+decoder	ldi KEY_0
+	xor R1
+	bneqi key_1
+	nop
+	ldi 0
+	wrw R15
+	beqi end_handles
+	nop
+key_1	ldi KEY_1
+	xor R1
+	bneqi key_2
+	nop
+	nop
+	ldi 1
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop	
+key_2	ldi KEY_2
+	xor R1
+	bneqi key_3
+	nop
+	ldi 2
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+key_3	ldi KEY_3
+	xor R1
+	bneqi key_4
+	nop
+	ldi 3
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+key_4	ldi KEY_4
+	xor R1
+	bneqi key_5
+	nop
+	ldi 4
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+key_5	ldi KEY_5
+	xor R1
+	bneqi key_6
+	nop
+	ldi 5
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+key_6	ldi KEY_6
+	xor R1
+	bneqi key_7
+	nop
+	ldi 6
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+key_7	ldi KEY_7
+	xor R1
+	bneqi key_8
+	nop
+	ldi 7
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+key_8	ldi KEY_8
+	xor R1
+	bneqi key_9
+	nop
+	ldi 8
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+key_9	ldi KEY_9
+	xor R1
+	bneqi keyplus
+	nop
+	ldi 9
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+keyplus	nop
+	ldi KEY_PLUS
+	xor R1
+	bneqi keyminus
+	nop
+	ldi 10
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+keyminus	ldi KEY_MINUS
+	xor R1
+	bneqi keymult
+	nop
+	ldi 11
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+keymult	ldi KEY_MULT
+	xor R1
+	bneqi keydiv
+	nop
+	ldi 12
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+keydiv	ldi KEY_DIV
+	xor R1
+	bneqi keyenter
+	nop
+	ldi 13
+	wrw R15
+	ldi 0
+	beqi end_handles
+	nop
+keyenter	ldi KEY_ENTER
+	xor R1
+	bneqi acquire_key
+	ldi 14
+	wrw R15
+	ldi 1
+	add R14
+	wrw R14
+	ldi 3
+	xor R14
+	beqi print
+	nop
+
+end_handles	nop
+# Do operation
+	rdw R15
+	wrw OPER_BASE
+    wrw DISP_BASE
+	ldi 0 
+	beqi acquire_key
+	nop
+
+
+# Print result when the third enter is pressed
+
+print	rdw R15
+	wrw OPER_BASE
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+	rdw OP_BASE
+	wrw DISP_BASE
+
+reset   ldi 0
+    beqi reset # wait for hardware reset
+
+# (never) finish program by jumping back to boot ROM
+finish	nop
+	ldi 0
+	beqi PROG_ROM
+	nop
+	nop
+
+
+
+
